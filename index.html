@@ -49,21 +49,20 @@
         </div>
 		                       
 		<script>
-$("#do").click(function(){
-$ajax({
-    type: "GET",
-    url: "https://youtube.googleapis.com/youtube/v3/channels
-    data: "?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc",
-    dataType:"json",
-    success: function(data){
-    console.log(data);
-    }
-    error: function(){
-    console.log("impossibile recuperare il dato...");
+		$("#do").click(function(){
+			$ajax({
+   			type: "GET",
+    			url: "https://youtube.googleapis.com/youtube/v3/channels",
+    			data: "?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc",
+    			dataType:"json",
+    			success: function(data){
+    				console.log(data);
+	    			}
+    				error: function(){
+    				console.log("impossibile recuperare il dato...");
     
-    }
-});
-});
+    				}		
+				});
     </script>	
 	<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
