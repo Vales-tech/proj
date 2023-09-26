@@ -1,3 +1,7 @@
+var request = new XMLHttpRequest ();
+request.open("GET","https://youtube.googleapis.com/youtube/v3/channels")
+request.send(null);
+
 document.getElementById('channelForm').addEventListener('submit', async (event) => {
   event.preventDefault();
   
