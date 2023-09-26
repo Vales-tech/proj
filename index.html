@@ -35,16 +35,32 @@
 							</div>
 				</section>
 			        		<div class="col-12">
-			     		
-			
-			<script>
+		<script>
+		$("#do").click(function(){
+			$ajax({
+   			type: "GET",
+    			url: "https://youtube.googleapis.com/youtube/v3/channels",
+    			data: "?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc",
+    			dataType:"json",
+    			success: function(data){
+    					console.log(data.items[0].statistics.SubscriberCount);
+	    				},
+				error: function(){
+					console.log("errore");
+				 	}
+				})
+			});
+    		</script>			
+		<!-- footer -->                              
+                		<div id="disqus_thread"></div>	
+		<script>
                 		(function() { // DON'T EDIT BELOW THIS LINE
                 		var d = document, s = d.createElement('script');
                 		s.src = 'https://project-gkqqw4dejy.disqus.com/embed.js';
                 		s.setAttribute('data-timestamp', +new Date());
                 		(d.head || d.body).appendChild(s);
                 		})();
-                	</script>
+                </script>
         			</div>
 			<!-- Copyright -->
 				<div id="copyright">
