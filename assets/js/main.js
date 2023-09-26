@@ -3,6 +3,21 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels");
+xhr.send();
+xhr.responseType = "json";
+xhr.onload = () => {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    const data = xhr.response;
+    console.log(data);
+  } else {
+    console.log(`Error: ${xhr.status}`);
+  }
+};
+
+
+
 
 (function($) {
 
