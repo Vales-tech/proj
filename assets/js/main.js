@@ -16,6 +16,9 @@ xhr.onload = () => {
   }
 };
 
+$.get("https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc", (data, status) => {
+  console.log(data);
+});
 
 
 
