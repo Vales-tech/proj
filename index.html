@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Channel metrics</title>
-		<script src="https://apis.google.com/js/api.js"></script>
-        	<meta charset="utf-8" />
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-          <!-- Includi i link CSS di HTML5 -->
+		<title>Channel metrics</title>
+          	<!-- Includi i link CSS di HTML5 -->
+		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Includi Chart.js -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<!-- Aggiungi un elemento canvas per il grafico -->
 		<canvas id="myChart"></canvas>
-		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -32,12 +31,18 @@
 							<div class="col-12">
 
 			<!-- search -->
-                                <form class="modulo-ricerca">
-                                	<input id="search" type="text" placeholder="insert your channel name" required>
-                                        <button id="submit">"CERCA"</button> 
+                                <form id="channelForm">
+					<label for="channelName">Inserisci il nome utente del canale YouTube:</label>
+                                	 <input type="text" id="channelName" placeholder="insert your channel name" required>
+                                        <button type="submit">CERCA e ottieni le metriche</button> 
+					<div id="metrics"></div>
                                 </form>
 							</div>
 				</section>
+			<!-- footer -->                              
+                		<div id="disqus_thread"></div>	
+				<div class="col-12">
+        			</div>
 			<script>
                 		(function() { // DON'T EDIT BELOW THIS LINE
                 		var d = document, s = d.createElement('script');
@@ -47,41 +52,6 @@
                 		});
 			</script> 
 
-<form id="channelForm">
-  <label for="channelName">Inserisci il nome utente del canale YouTube:</label>
-  <input type="text" id="channelName" required>
-  <button type="submit">Ottenere le metriche</button>
-</form>
-<div id="metrics"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							
-							
-			<!-- footer -->                              
-                		<div id="disqus_thread"></div>	
-					
-			<div class="col-12">
-        			</div>
 			<!-- Copyright -->
 				<div id="copyright">
 					<ul class="menu">
