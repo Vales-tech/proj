@@ -7,7 +7,7 @@
 
  
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&f");
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
