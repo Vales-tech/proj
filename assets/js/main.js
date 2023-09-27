@@ -49,8 +49,7 @@ $.get("GET, "https://apis.google.com/js/api.js", (data, status) => {
                 console.log("Response", response);
               },
               function(err) { console.error("Execute error", err); });
-  }
-   });
+  };
 
 
 
