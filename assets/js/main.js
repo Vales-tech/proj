@@ -7,16 +7,21 @@
 
  
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=GoogleDevelopers&key=[AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc]  ");
+xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=GoogleDevelopers&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    const data = xhr.response;
-    console.log(data);
-  } else {
-    console.log(`Error: ${xhr.status}`); 
+  if (xhr.readyState == 4) {
+    if (xhr.status == 200) {
+      const data = xhr.response;
+      console.log(data);
+    } else {
+      console.log(`Errore nella richiesta: ${xhr.status}`);
+    }
   }
+};
+xhr.onerror = () => {
+  console.log("Errore nella richiesta.");
 };
 
 
