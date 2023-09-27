@@ -24,6 +24,22 @@ xhr.onload = () => {
 xhr.onerror = () => {
   console.log("Errore nella richiesta.");
 };
+const ctx = document.getElementById("myChart").getContext("2d");
+const myChart = new Chart(ctx, {
+  type: "bar", // Tipo di grafico (può essere bar, line, pie, ecc.)
+  data: {
+    labels: ["Etichetta 1", "Etichetta 2", "Etichetta 3"],
+    datasets: [
+      {
+        label: "Dati API",
+        data: [10, 20, 15], // Sostituisci con i tuoi dati API
+        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)"],
+        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  },
+});
 
 
 
