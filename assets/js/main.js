@@ -4,7 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://www.googleapis.com/auth/yt-analytics.readonly");
+xhr.open("GET", "GET https://www.googleapis.com/youtube/v3/channels");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
@@ -16,7 +16,7 @@ xhr.onload = () => {
   }
 };
 
-$.get("https://www.googleapis.com/auth/yt-analytics.readonly", (data, status) => {
+$.get("GET https://www.googleapis.com/youtube/v3/channels", (data, status) => {
   console.log(data);
 });
 
