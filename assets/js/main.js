@@ -4,7 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc");
+xhr.open("GET", "https://www.googleapis.com/auth/yt-analytics.readonly");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
@@ -16,7 +16,7 @@ xhr.onload = () => {
   }
 };
 
-$.get("https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc", (data, status) => {
+$.get("https://www.googleapis.com/auth/yt-analytics.readonly", (data, status) => {
   console.log(data);
 });
 
