@@ -7,7 +7,7 @@
 
  
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=GoogleDevelopers&key=[AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc]  ");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
@@ -15,7 +15,7 @@ xhr.onload = () => {
     const data = xhr.response;
     console.log(data);
   } else {
-    console.log(`Error: ${xhr.status}`);
+    console.log(`Error: ${xhr.status}`); 
   }
 };
 
