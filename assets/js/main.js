@@ -7,7 +7,8 @@
 
  
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=GoogleDevelopers&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc");
+xhr.open("GET", "
+https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc");
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
