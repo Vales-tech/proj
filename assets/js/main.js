@@ -6,6 +6,20 @@
 
 
  
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&f");
+xhr.send();
+xhr.responseType = "json";
+xhr.onload = () => {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    const data = xhr.response;
+    console.log(data);
+  } else {
+    console.log(`Error: ${xhr.status}`);
+  }
+};
+
+
   function loadClient() {
     gapi.client.setApiKey("AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc");
     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
