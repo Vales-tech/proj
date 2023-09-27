@@ -35,6 +35,10 @@
 							</div>
 				</section>
 			        		<div class="col-12">
+
+
+
+							
 		<script>
 		$("#do").click(function(){
 			$ajax({
@@ -50,7 +54,13 @@
 				 	}
 				})
 			});
-    		</script>			
+    		</script>	
+	<button onclick="authenticate().then(loadClient)">authorize and load</button>
+	<button onclick="execute()">execute</button>
+
+
+
+							
 		<!-- footer -->                              
                 		<div id="disqus_thread"></div>	
 		<script>
