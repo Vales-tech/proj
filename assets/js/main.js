@@ -3,30 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://apis.google.com/js/api.js");
-xhr.send();
-xhr.responseType = "json";
-xhr.onload = () => {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    const data = xhr.response;
-    console.log(data);
-  } else {
-    console.log(`Error: ${xhr.status}`);
-  }
-};
-/**
-$.get("GET, "https://apis.google.com/js/api.js", (data, status) => {
-  console.log(data);
-});
 
-
-
-  
-   * Sample JavaScript code for youtube.search.list
-   * See instructions for running APIs Explorer code samples locally:
-   * https://developers.google.com/explorer-help/code-samples#javascript
-   */
 
  
   function loadClient() {
