@@ -15,14 +15,14 @@ xhr.onload = () => {
     console.log(`Error: ${xhr.status}`);
   }
 };
-
+/**
 $.get("GET, "https://apis.google.com/js/api.js", (data, status) => {
   console.log(data);
 });
 
 
 
-  /**
+  
    * Sample JavaScript code for youtube.search.list
    * See instructions for running APIs Explorer code samples locally:
    * https://developers.google.com/explorer-help/code-samples#javascript
