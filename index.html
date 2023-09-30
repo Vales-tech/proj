@@ -88,20 +88,28 @@
 			  type: 'line',
 			  data: data,
 			  options: {
-			    interaction: {
-			      intersect: false,
-			      mode: 'index',
-			    },
 			    plugins: {
-			      tooltip: {
-			        callbacks: {
-			          footer: footer,
+			      title: {
+			        display: true,
+			        text: 'Chart Title',
+			      },
+			      subtitle: {
+			        display: true,
+			        text: 'Chart Subtitle',
+			        color: 'blue',
+			        font: {
+			          size: 12,
+			          family: 'tahoma',
+			          weight: 'normal',
+			          style: 'italic'
+			        },
+			        padding: {
+			          bottom: 10
 			        }
 			      }
 			    }
 			  }
 			};
-						
 			</script>
 	
 	</body>
