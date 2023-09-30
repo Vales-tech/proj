@@ -17,19 +17,20 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
         const metrics = {
           channelTitle: data.items[0].snippet.title,
           subscribers: data.items[0].statistics.subscriberCount,
-          views: data.items[0].statistics.viewCount,
           videos: data.items[0].statistics.videoCount,
-        };
-
+          };
+const metrics = {
+	views: data.items[0].statistics.viewCount,
+	};
+	    
         // Visualizza le metriche nell'elemento div "metrics"
         const metricsElement = document.getElementById("metrics");
         metricsElement.innerHTML = `
           <h2>Metriche per il canale ${metrics.channelTitle}</h2>
           <p>Numero di iscritti: ${metrics.subscribers}</p>
-          <p>Numero di visualizzazioni: ${metrics.views}</p>
           <p>Numero di video: ${metrics.videos}</p>
         `;
-
+	document.getElementById('viewCount').textContent = metrics.views;  
         // Dati delle metriche per il grafico
         const chartData = {
           labels: ["Iscritti", "Visualizzazioni", "Video"],
