@@ -1,5 +1,5 @@
 <?php
-$miamail = "webmaster@miosito.com";
+$miamail = "vales87@live.it";
 $successo = $_POST['successo'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
