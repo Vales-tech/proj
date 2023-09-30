@@ -34,3 +34,39 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       console.error("Si è verificato un errore durante la richiesta API:", error);
     });
 });
+// Dati delle metriche
+const data = {
+  labels: ["Iscritti", "Visualizzazioni", "Video"],
+  datasets: [
+    {
+      label: "Metriche",
+      data: [metrics.subscribers, metrics.views, metrics.videos],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)', // Colore per iscritti
+        'rgba(54, 162, 235, 0.2)', // Colore per visualizzazioni
+        'rgba(255, 206, 86, 0.2)', // Colore per video
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+
+const ctx = document.getElementById("myChart").getContext("2d");
+
+// Crea il grafico a barre
+new Chart(ctx, {
+  type: "bar",
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
