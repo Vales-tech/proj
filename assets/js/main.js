@@ -15,13 +15,18 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     videos: data.items[0].statistics.videoCount,
   };
 
-  // Ottieni il contesto del canvas
-  const canvas = document.getElementById("customChart");
-  const ctx = canvas.getContext("2d");
+  // Ottieni l'elemento "metrics" dal DOM
+  const metricsElement = document.getElementById("metrics");
 
-  // Imposta le dimensioni del canvas
-  canvas.width = 400;
-  canvas.height = 300;
+  // Crea un canvas per il grafico
+  const canvas = document.createElement("canvas");
+  canvas.id = "lineChart"; // Assegna un id al canvas
+
+  // Aggiungi il canvas all'elemento "metrics"
+  metricsElement.appendChild(canvas);
+
+  // Ottieni il contesto del canvas
+  const ctx = canvas.getContext("2d");
 
   // Definisci i dati per il grafico a linee
   const dataPoints = [
@@ -30,38 +35,28 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     { label: "Video", value: metrics.videos },
   ];
 
-  // Calcola il numero di punti dati
-  const numPoints = dataPoints.length;
+  // Estrai le etichette e i valori dai dati
+  const labels = dataPoints.map((point) => point.label);
+  const values = dataPoints.map((point) => point.value);
 
-  // Calcola la larghezza di ogni intervallo orizzontale
-  const intervalWidth = canvas.width / (numPoints + 1);
-
-  // Definisci la posizione iniziale x
-  let x = intervalWidth;
-
-  // Disegna le linee del grafico
-  ctx.strokeStyle = getRandomColor();
-  ctx.lineWidth = 2;
-
-  ctx.beginPath();
-  ctx.moveTo(x, canvas.height - (dataPoints[0].value / 1000000)); // Scala i dati
-  for (let i = 1; i < numPoints; i++) {
-    x += intervalWidth;
-    ctx.lineTo(x, canvas.height - (dataPoints[i].value / 1000000)); // Scala i dati
-  }
-
-  ctx.stroke();
-
-  // Funzione per generare colori casuali
-  function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
+  // Crea il grafico a linee utilizzando Chart.js
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Metriche",
+          data: values,
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 2,
+          fill: false,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  });
 })
-.catch((error) => {
-  console.error("Si è verificato un errore durante la richiesta API:", error);
-});
