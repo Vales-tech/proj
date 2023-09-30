@@ -21,7 +21,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     videos: data.items[0].statistics.videoCount,
   };
   
-     /* // Visualizza le metriche nell'elemento div "metrics"
+  // Visualizza le metriche nell'elemento div "metrics"
       const metricsElement = document.getElementById("metrics");
       metricsElement.innerHTML = `
         <h2>Metriche per il canale ${metrics.channelTitle}</h2>
@@ -33,6 +33,4 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     .catch((error) => {
       console.error("Si è verificato un errore durante la richiesta API:", error);
     });
-});*/
-
-
+});
