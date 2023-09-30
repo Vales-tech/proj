@@ -20,40 +20,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     views: data.items[0].statistics.viewCount,
     videos: data.items[0].statistics.videoCount,
   };
-
-  // Crea un array con le etichette dei dati e i valori corrispondenti
-  const labels = ["Iscritti", "Visualizzazioni", "Video"];
-  const values = [metrics.subscribers, metrics.views, metrics.videos];
-
-  // Ottieni il contesto del canvas
-  const ctx = document.getElementById("myChart").getContext("2d");
-
-  // Crea un grafico a barre utilizzando Chart.js
-  const myChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Metriche del canale",
-          data: values,
-          backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)"],
-          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)"],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-})
-
-
+  
      /* // Visualizza le metriche nell'elemento div "metrics"
       const metricsElement = document.getElementById("metrics");
       metricsElement.innerHTML = `
