@@ -13,15 +13,15 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
     .then((response) => response.json())
     .then((data) => {
-      // Estrai le metriche desiderate dalla risposta API
-      const metrics = {
-        channelTitle: data.items[0].snippet.title,
-        subscribers: data.items[0].statistics.subscriberCount,
-        views: data.items[0].statistics.viewCount,
-        videos: data.items[0].statistics.videoCount,
-      };
+  // Estrai le metriche desiderate dalla risposta API
+  const metrics = {
+    channelTitle: data.items[0].snippet.title,
+    subscribers: data.items[0].statistics.subscriberCount,
+    views: data.items[0].statistics.viewCount,
+    videos: data.items[0].statistics.videoCount,
+  };
 
-// Crea un array con le etichette dei dati e i valori corrispondenti
+  // Crea un array con le etichette dei dati e i valori corrispondenti
   const labels = ["Iscritti", "Visualizzazioni", "Video"];
   const values = [metrics.subscribers, metrics.views, metrics.videos];
 
