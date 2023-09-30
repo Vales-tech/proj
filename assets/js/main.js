@@ -19,7 +19,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
           subscribers: data.items[0].statistics.subscriberCount,
           videos: data.items[0].statistics.videoCount,
           };
-const metrics = {
+const vis = {
 	views: data.items[0].statistics.viewCount,
 	};
 	    
