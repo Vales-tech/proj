@@ -65,52 +65,32 @@
 			<script src="assets/js/main.js"></script>  		
 			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 			<script>
-			  const ctx = document.getElementById('myChart');
-			  new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			      datasets: [{
-			        label: '# of Votes',
-			        data: [12, 19, 3, 5, 2, 3],
-			        borderWidth: 1
-			      }]
-			    },
-			    options: {
-			      scales: {
-			        y: {
-			          beginAtZero: true
-			        }
-			      }
-			    }
-			  });
-			const config = {
-			  type: 'line',
-			  data: data,
-			  options: {
-			    plugins: {
-			      title: {
-			        display: true,
-			        text: 'Chart Title',
-			      },
-			      subtitle: {
-			        display: true,
-			        text: 'Chart Subtitle',
-			        color: 'blue',
-			        font: {
-			          size: 12,
-			          family: 'tahoma',
-			          weight: 'normal',
-			          style: 'italic'
-			        },
-			        padding: {
-			          bottom: 10
-			        }
-			      }
-			    }
-			  }
-			};
+			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+			<script>
+				  // Primo grafico
+				  const ctx1 = document.getElementById('myChart1').getContext('2d');
+				  new Chart(ctx1, {
+				    type: 'bar',
+				    data: {
+				      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+				      datasets: [{
+				        label: '# of Votes',
+				        data: [12, 19, 3, 5, 2, 3],
+				        borderWidth: 1
+				      }]
+				    },
+				    options: {
+				      scales: {
+				        y: {
+				          beginAtZero: true
+				        }
+				      }
+				    }
+				  });
+				
+				  // Secondo grafico
+				  const ctx2 = document.getElementById('myChart2').getContext('2d');
+				  new Chart(ctx2, config);
 			</script>
-	
 	</body>
 </html>
