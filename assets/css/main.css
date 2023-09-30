@@ -28,7 +28,13 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
-
+td {
+	border-right: 1px solid #6D929B;
+	border-bottom: 1px solid #6D929B;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #6D929B;
+}
 body {
 	line-height: 1;
 }
