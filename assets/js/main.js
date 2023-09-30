@@ -4,7 +4,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   const channelName = document.getElementById("channelName").value;
 
   // Esegui una richiesta API con il nome utente del canale
-  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YAIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
     .then((response) => response.json())
     .then((data) => {
       // Estrai le metriche desiderate dalla risposta API
