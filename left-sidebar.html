@@ -5,15 +5,17 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Left Sidebar - TXT by HTML5 UP</title>
+	<head> 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta charset="UTF-8">
+    		<title>Playlist di YouTube</title>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
-
+		<h1>Playlist di YouTube</h1>
+    		<ul id="playlistList"></ul>
 			<!-- Header -->
 				<header id="header">
 					<div class="logo container">
@@ -146,31 +148,44 @@
 											</section>
 
 											<section>
-												<h3>More intriguing information</h3>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-													justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-													ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-													vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-													Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-													rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien
-													vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-													Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-													rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-													Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-													Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.
-												</p>
-												<p>
-													Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-													quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-													Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-													fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-													Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-													rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-													Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-													Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-													Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.
-												</p>
+												// Tua chiave API
+        const API_KEY = "TUA_CHIAVE_API";
+
+        // Array di nomi utente dei canali desiderati
+        const channelUsernames = ["Canale1", "Canale2", "Canale3"]; // Sostituisci con i nomi utente dei canali desiderati
+
+        // Funzione per ottenere le playlist di un canale
+        function getPlaylists(channelUsername) {
+            const apiUrl = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelUsername=${channelUsername}&key=${API_KEY}`;
+
+            return fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    return data.items;
+                });
+        }
+
+        // Funzione per visualizzare le playlist in un elenco
+        function displayPlaylists(playlists) {
+            const playlistList = document.getElementById("playlistList");
+
+            playlists.forEach(playlist => {
+                const listItem = document.createElement("li");
+                listItem.textContent = playlist.snippet.title;
+                playlistList.appendChild(listItem);
+            });
+        }
+
+        // Effettua richieste API per ciascun canale e visualizza le playlist
+        Promise.all(channelUsernames.map(getPlaylists))
+            .then(results => {
+                const allPlaylists = [].concat(...results);
+                displayPlaylists(allPlaylists);
+            })
+            .catch(error => {
+                console.error("Si è verificato un errore durante le richieste API:", error);
+            });
+    </script>
 											</section>
 
 											<section>
