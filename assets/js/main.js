@@ -26,7 +26,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       `;
 
       // Dati delle metriche per il grafico
-      const data = {
+      const chartData = {
         labels: ["Iscritti", "Visualizzazioni", "Video"],
         datasets: [
           {
@@ -52,7 +52,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       // Crea il grafico a barre
       new Chart(ctx, {
         type: "bar",
-        data: data,
+        data: chartData, // Utilizzata la variabile chartData
         options: {
           scales: {
             y: {
