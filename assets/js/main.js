@@ -35,4 +35,39 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     });
 });
 
- 
+
+// API playlist 
+        const API_KEY = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
+// Array di nomi utente dei canali desiderati
+        const channelUsernames = ["Canale1", "Canale2", "Canale3"]; // Sostituisci con i nomi utente dei canali desiderati
+        // Funzione per ottenere le playlist di un canale
+        function getPlaylists(channelUsername) {
+            const apiUrl = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelUsername=${channelUsername}&key=${AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc}`;
+
+            return fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    return data.items;
+                });
+        }
+
+        // Funzione per visualizzare le playlist in un elenco
+        function displayPlaylists(playlists) {
+            const playlistList = document.getElementById("playlistList");
+
+            playlists.forEach(playlist => {
+                const listItem = document.createElement("li");
+                listItem.textContent = playlist.snippet.title;
+                playlistList.appendChild(listItem);
+            });
+        }
+
+        // Effettua richieste API per ciascun canale e visualizza le playlist
+        Promise.all(channelUsernames.map(getPlaylists))
+            .then(results => {
+                const allPlaylists = [].concat(...results);
+                displayPlaylists(allPlaylists);
+            })
+            .catch(error => {
+                console.error("Si è verificato un errore durante le richieste API:", error);
+            });
