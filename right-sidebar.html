@@ -41,29 +41,33 @@
 						<p>Join us, info, richieste...Ti risponderemo al più presto</p>
 					</header>
 						<section>
-							<form action="/cgi-bin/FormMail.pl" method="POST">
-								<input type=hidden name="recipient" value="vales87@live.it">
-								<input type=hidden name="subject" value="Nuovo messaggio dal sito web!">
-								<table border="0" cellspacing="0" cellpadding="5" align="center">
-								 <tr>
-								 <td><b> Nome e Cognome:</b></td>
-								 <td align="right"><input type=text name="realname"></td>
-								 </tr>
-								 <tr>
-								 <td><b>Email:</b></td>
-								 <td align="right"><input type=text name="email"></td>
-								 </tr>
-								 <tr>
-								 <td colspan="2"><b>Messaggio:</b></td>
-								 </tr>
-								 <tr>
-								 <td colspan="2"><textarea name="messaggio" cols="40" rows="5"></textarea></td>
-								 </tr>
-								 <tr>
-								 <td colspan="2" align="center"><input type="Submit" value="Invia"></td>
-								 </tr>
-								</table>
-								<input type=hidden name="required" value="email,realname,messaggio">
+							<form>
+							        <fieldset>
+							            <legend>Please provide your details below</legend>
+							            <label for="name">Your Name</label>
+							            <input type="text" id="name" name="name" maxlength="30">
+							            <br>
+							            <label for="email">Email</label>
+							            <input type="email" id="email" name="email" required maxlength="40">
+							            <br>
+							            <label for="phone">Phone</label>
+							            <input type="phone" id="phone" name="phone" maxlength="10">
+							            <br>
+							            <label for="subject">Subject</label>
+							            <select id="subject" name="subject">
+							                <option value="Support">Support</option>
+							                <option value="Sales">Sales</option>
+							                <option value="Report a bug">Report a bug</option>
+							            </select>
+							            <br>
+							            <label id="message_label" for="message">Message</label>
+							            <textarea id="message" name="message" id="" cols="30" rows="2"></textarea>
+							            <br>
+							            <label for="file">Upload a file</label>
+							            <input type="file" id="file" name="file" multiple>
+							            <br>
+							            <input type="submit" id="submit" value="Send details">
+							        </fieldset>
 							</form>
 						</section>
 				</article>
