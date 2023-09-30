@@ -84,6 +84,24 @@
 			      }
 			    }
 			  });
+			const config = {
+			  type: 'line',
+			  data: data,
+			  options: {
+			    interaction: {
+			      intersect: false,
+			      mode: 'index',
+			    },
+			    plugins: {
+			      tooltip: {
+			        callbacks: {
+			          footer: footer,
+			        }
+			      }
+			    }
+			  }
+			};
+						
 			</script>
 	
 	</body>
