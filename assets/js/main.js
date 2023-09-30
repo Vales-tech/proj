@@ -4,15 +4,16 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   const channelName = document.getElementById("channelName").value;
 
   // Esegui una richiesta API con il nome utente del canale
-  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr1`)
     .then((response) => response.json())
-    .then((data) => {
+    .then((apiData) => { // Rinominata la variabile apiData
+
       // Estrai le metriche desiderate dalla risposta API
       const metrics = {
-        channelTitle: data.items[0].snippet.title,
-        subscribers: data.items[0].statistics.subscriberCount,
-        views: data.items[0].statistics.viewCount,
-        videos: data.items[0].statistics.videoCount,
+        channelTitle: apiData.items[0].snippet.title,
+        subscribers: apiData.items[0].statistics.subscriberCount,
+        views: apiData.items[0].statistics.viewCount,
+        videos: apiData.items[0].statistics.videoCount,
       };
 
       // Visualizza le metriche nell'elemento div "metrics"
