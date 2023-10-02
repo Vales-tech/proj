@@ -139,17 +139,21 @@
 														videos: data.items[0].statistics.videoCount,								
 											                }; 
 											                
-											                // Visualizza le metriche nell'elemento div "video"
-											                const videoElement = document.getElementById("video");
-											                videoElement.innerHTML = `
-											                    <h2>Stream: ${video.stream}</h2>
-											                    <li>Player: ${video.player}</li>
-											                `;
-											            })
-											            .catch((error) => {
-											                console.error("Si è verificato un errore durante la richiesta API:", error);
-											            });
+											                // Visualizza le metriche nell'elemento div "metrics"
+													      const videoElement = document.getElementById("video");
+													      videoElement.innerHTML = `
+													        <p>Numero di iscritti: ${metrics.subscribers}</p>
+													        <p>Numero di visualizzazioni: ${metrics.views}</p>
+													        <p>Numero di video: ${metrics.videos}</p>
+													      `;
+													    })
+													    .catch((error) => {
+													      console.error("Si è verificato un errore durante la richiesta API:", error);
+													    });
+													}); 
 												</script>
+												
+												<div id= "video"></div>
 											</section>
 											
 											<section>
