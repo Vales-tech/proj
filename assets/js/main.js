@@ -1,5 +1,6 @@
 // Esegui una richiesta API con il nome utente del canale
  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)  .then((response) => response.json())
+  .then((response) => response.json())
   .then((data) => {
     // Estrai le metriche desiderate dalla risposta API
     const metrics = {
