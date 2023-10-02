@@ -13,14 +13,14 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     subscribers: data.items[0].statistics.subscriberCount,
     views: data.items[0].statistics.viewCount,
     videos: data.items[0].statistics.videoCount,
-  };
-      
+  }; 
       
   // Visualizza le metriche nell'elemento div "metrics"
       const metricsElement = document.getElementById("metrics");
       metricsElement.innerHTML = `
+        <ul>
         <h2>Metriche per il canale ${metrics.channelTitle}</h2>
-        <p>Numero di iscritti: ${metrics.subscribers}</p>
+        <li>Numero di iscritti: ${metrics.subscribers}</li>
         <p>Numero di visualizzazioni: ${metrics.views}</p>
         <p>Numero di video: ${metrics.videos}</p>
       `;
