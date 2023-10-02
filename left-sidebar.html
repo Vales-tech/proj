@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
+<!--
+	TXT by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head> 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta charset="UTF-8">
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<title>Playlist</title>
+		<title>PLaylist</title>
 	</head>
 	<body class="is-preload">		
     		
@@ -80,6 +84,17 @@
 								</p>
 								<a href="#" class="button alt">Learn more</a>
 							</section>
+
+							<!-- Something -->
+							<section>
+								<h2 class="major"><span>Magna Feugiat</span></h2>
+								<p>
+									Rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
+									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+								</p>
+								<a href="#" class="button alt">Learn more</a>
+							</section>
 						</div>
 					</div>
 					<div class="col-9 col-12-medium imp-medium">
@@ -114,7 +129,7 @@
 								</section>
 								<script>
 									// Esegui una richiesta API per i dettagli del video
-									fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+									fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
 										.then((response) => response.json())
 										.then((data) => {
 											// Estrai le metriche desiderate dalla risposta API
@@ -136,6 +151,7 @@
 											console.error("Si è verificato un errore durante la richiesta API:", error);
 										});
 								</script>
+								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 								<script>
 								// Codice per creare un grafico Chart.js
 								const ctx = document.getElementById('myChart').getContext('2d');
@@ -182,7 +198,6 @@
 								  options: options
 								});
 								</script>
-	
 							</section>
 							<!-- Altro contenuto qui -->
 						</div>
@@ -228,6 +243,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	</body>							
+	</body>
 </html>
