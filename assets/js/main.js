@@ -18,13 +18,11 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   // Visualizza le metriche nell'elemento div "metrics"
       const metricsElement = document.getElementById("metrics");
       metricsElement.innerHTML = `
-        <ul>
         <h2>Metriche per il canale ${metrics.channelTitle}</h2>
         <li>Numero di iscritti: ${metrics.subscribers}</li>
         <p>Numero di visualizzazioni: ${metrics.views}</p>
         <p>Numero di video: ${metrics.videos}</p>
       `;
-      </ul>
     })
     .catch((error) => {
       console.error("Si è verificato un errore durante la richiesta API:", error);
