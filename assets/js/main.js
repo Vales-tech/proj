@@ -19,9 +19,10 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       const metricsElement = document.getElementById("metrics");
       metricsElement.innerHTML = `
         <h2>Metriche per il canale ${metrics.channelTitle}</h2>
-        <h3>Numero di iscritti: ${metrics.subscribers}</h3>
-        <h4>Numero di visualizzazioni: ${metrics.views}</h4>
-        <h1>Numero di video: ${metrics.videos}</h1>
+        <header>
+        <p>Numero di iscritti: ${metrics.subscribers}</p>
+        <p>Numero di visualizzazioni: ${metrics.views}</p>
+        <p>Numero di video: ${metrics.videos}</p></header>
       `;
     })
     .catch((error) => {
