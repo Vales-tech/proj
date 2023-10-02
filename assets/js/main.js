@@ -24,6 +24,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
         <p>Numero di visualizzazioni: ${metrics.views}</p>
         <p>Numero di video: ${metrics.videos}</p>
       `;
+      </ul>
     })
     .catch((error) => {
       console.error("Si è verificato un errore durante la richiesta API:", error);
