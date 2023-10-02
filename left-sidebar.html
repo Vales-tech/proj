@@ -114,6 +114,7 @@
 									<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
 									<p>
 										<div id="video">
+											<canvas id="myChart" width="400" height="400"></canvas>
 											<!-- Qui verranno visualizzati i dettagli del video -->
 										</div>
 									</p>
@@ -153,9 +154,51 @@
 								</script>
 								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 								<script>
-									// Inserisci qui il codice per creare il grafico Chart.js
+								// Codice per creare un grafico Chart.js
+								const ctx = document.getElementById('myChart').getContext('2d');
+								
+								// Dati del grafico (modifica questi dati con i tuoi dati effettivi)
+								const data = {
+								  labels: ['video', 'iscritti', 'bla', 'Green', 'Purple', 'Orange'],
+								  datasets: [{
+								    label: '# of Votes',
+								    data: [12, 19, 3, 5, 2, 3],
+								    backgroundColor: [
+								      'red',
+								      'blue',
+								      'yellow',
+								      'green',
+								      'purple',
+								      'orange'
+								    ],
+								    borderColor: [
+								      'red',
+								      'blue',
+								      'yellow',
+								      'green',
+								      'purple',
+								      'orange'
+								    ],
+								    borderWidth: 1
+								  }]
+								};
+								
+								// Configurazione del grafico
+								const options = {
+								  scales: {
+								    y: {
+								      beginAtZero: true
+								    }
+								  }
+								};
+								
+								// Crea il grafico
+								const myChart = new Chart(ctx, {
+								  type: 'bar',
+								  data: data,
+								  options: options
+								});
 								</script>
-								<div id="video"></div>
 							</section>
 							<!-- Altro contenuto qui -->
 						</div>
@@ -200,5 +243,6 @@
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</body>
 </html>
