@@ -10,24 +10,24 @@
     <!-- ... (Altri elementi HTML come header e nav) ... -->
 
     <section id="main">
-        <div class="container">
-            <div class="row">
-                <!-- ... (Colonne della pagina) ... -->
+    <div class="container">
+        <div class="row">
+            <!-- ... (Colonne della pagina) ... -->
 
-                <div id="page-wrapper">
-                    <h1>Playlist di YouTube</h1>
-                    <form id="video-form">
-                        <label for="channelName">Inserisci l'ID del video YouTube:</label>
-                        <input type="text" id="videoId" placeholder="Inserisci l'ID del video" required>
-                        <button type="submit">Cerca e ottieni le metriche</button>
-                    </form>
-                    <ul id="playlistList"></ul>
+            <div id="video">
+                <h1>Playlist di YouTube</h1>
+                <form id="video-form">
+                    <label for="videoId">Inserisci l'ID del video YouTube:</label>
+                    <input type="text" id="videoId" placeholder="Inserisci l'ID del video" required>
+                    <button type="submit">Cerca e ottieni le metriche</button>
+                </form>
+                <ul id="playlistList"></ul>
 
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                </div>
+                <canvas id="myChart" width="400" height="400"></canvas>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ... (Altri elementi HTML come footer e scripts) ... -->
 
