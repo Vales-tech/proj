@@ -12,10 +12,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body class="is-preload">		
-    		<title>Playlist di YouTube</title>
-		<div id="page-wrapper">
-		<h1>Playlist di YouTube</h1>
-    		<ul id="playlistList"></ul>
+    		
 			<!-- Header -->
 				<header id="header">
 					<div class="logo container">
@@ -122,54 +119,39 @@
 											<section>
 												<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
 												<p>
-													Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-													Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-													Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-													consequat etiam lorem ipsum dolor sit amet nullam.
-												</p>
+											<div id="video">
+											        <!-- Qui verranno visualizzati i dettagli del video -->
+											</div>
+												<title>Playlist di YouTube</title>
+													<div id="page-wrapper">
+														<h1>Playlist di YouTube</h1>
+										    				<ul id="playlistList"></ul>
+													</div>
+												<script>
+											        // Esegui una richiesta API per i dettagli del video
+											        fetch(`https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails%2Cplayer&id=YOUR_VIDEO_ID&key=YOUR_API_KEY`)
+											            .then((response) => response.json())
+											            .then((data) => {
+											                // Estrai le metriche desiderate dalla risposta API
+											                const video = { 
+											                    stream: data.items[0].liveStreamingDetails,
+											                    player: data.items[0].player, 
+											                }; 
+											                
+											                // Visualizza le metriche nell'elemento div "video"
+											                const videoElement = document.getElementById("video");
+											                videoElement.innerHTML = `
+											                    <h2>Stream: ${video.stream}</h2>
+											                    <li>Player: ${video.player}</li>
+											                `;
+											            })
+											            .catch((error) => {
+											                console.error("Si è verificato un errore durante la richiesta API:", error);
+											            });
+												</script>
+											</p>
 											</section>
-
-											<section>
-	<script>											// Tua chiave API
-        const API_KEY = "TUA_CHIAVE_API";
-
-        // Array di nomi utente dei canali desiderati
-        const channelUsernames = ["Canale1", "Canale2", "Canale3"]; // Sostituisci con i nomi utente dei canali desiderati
-
-        // Funzione per ottenere le playlist di un canale
-        function getPlaylists(channelUsername) {
-            const apiUrl = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelUsername=${channelUsername}&key=${API_KEY}`;
-
-            return fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    return data.items;
-                });
-        }
-
-        // Funzione per visualizzare le playlist in un elenco
-        function displayPlaylists(playlists) {
-            const playlistList = document.getElementById("playlistList");
-
-            playlists.forEach(playlist => {
-                const listItem = document.createElement("li");
-                listItem.textContent = playlist.snippet.title;
-                playlistList.appendChild(listItem);
-            });
-        }
-
-        // Effettua richieste API per ciascun canale e visualizza le playlist
-        Promise.all(channelUsernames.map(getPlaylists))
-            .then(results => {
-                const allPlaylists = [].concat(...results);
-                displayPlaylists(allPlaylists);
-            })
-            .catch(error => {
-                console.error("Si è verificato un errore durante le richieste API:", error);
-            });
-    </script>
-											</section>
-
+											
 											<section>
 												<h3>So in conclusion ...</h3>
 												<p>
