@@ -28,7 +28,12 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
-
+#metrics {
+  background-color: #f2f5f3;
+  color: black;
+  padding: 40px;
+  text-align: center;
+} 
 body {
 	line-height: 1;
 }
