@@ -129,13 +129,14 @@
 													</div>
 												<script>
 											        // Esegui una richiesta API per i dettagli del video
-											        fetch(`https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails%2Cplayer&id=YOUR_VIDEO_ID&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+											        fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
 											            .then((response) => response.json())
 											            .then((data) => {
 											                // Estrai le metriche desiderate dalla risposta API
 											                const video = { 
-											                    stream: data.items[0].liveStreamingDetails,
-											                    player: data.items[0].player, 
+														subscribers: data.items[0].statistics.subscriberCount,
+														views: data.items[0].statistics.viewCount,
+														videos: data.items[0].statistics.videoCount,								
 											                }; 
 											                
 											                // Visualizza le metriche nell'elemento div "video"
