@@ -21,15 +21,37 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   videos: data.items[0].statistics.videoCount,
 };
 
-      // Visualizza le metriche nell'elemento div "metrics"
-      const titleElement = document.getElementById("subscribers");
-      titleElement.innerHTML = `<p>Numero di iscritti: ${metrics.subscribers}</p>`;
-      const viewsElement = document.getElementById("views");
-      viewsElement.innerHTML = `<p>Numero di visualizzazioni: ${metrics.views}</p>`;
-      const videoElement = document.getElementById("video");
-      videoElement.innerHTML = `<p>Numero di video: ${metrics.videos}</p>`;
-    })
-    .catch((error) => {
-      console.error("Si è verificato un errore durante la richiesta API:", error);
-    });
+	    // Visualizza le metriche nel grafico
+  const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Subscribers', 'Views', 'Videos'],
+      datasets: [{
+        label: 'Channel Metrics',
+        data: [metrics.subscribers, metrics.views, metrics.videos],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)', // Colore per gli iscritti
+          'rgba(54, 162, 235, 0.2)', // Colore per le visualizzazioni
+          'rgba(255, 206, 86, 0.2)', // Colore per i video
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)', // Colore del bordo per gli iscritti
+          'rgba(54, 162, 235, 1)', // Colore del bordo per le visualizzazioni
+          'rgba(255, 206, 86, 1)', // Colore del bordo per i video
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+})
+.catch((error) => {
+  console.error("Si è verificato un errore durante la richiesta API:", error);
 });
