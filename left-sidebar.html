@@ -93,8 +93,8 @@
 									</p>
 									<div id="page-wrapper">
 										<h1>Playlist di YouTube</h1>
-										<form id="channelForm">
-											<label for="channelName">Inserisci il nome utente del canale YouTube:</label>
+										<form id="video">
+											<label form="video">Inserisci il nome del video YouTube:</label>
 											<input type="text" id="channelName" placeholder="insert channel name" required>
 											<button type="submit">Cerca e ottieni le metriche</button> 
 										</form>
@@ -103,6 +103,8 @@
 								</section>
 								<script>
 									// Esegui una richiesta API per i dettagli del video
+									document.getElementById("video").addEventListener("submit", function (e) {e.preventDefault();
+  									const channelName = document.getElementById("channelName").value;
 									fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
 										.then((response) => response.json())
 										.then((data) => {
