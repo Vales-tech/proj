@@ -155,7 +155,28 @@
 												
 												<div id= "video"></div>
 											</section>
-											
+											<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+											    <script>
+														  const ctx = document.getElementById('metrics');
+														  new Chart(ctx, {
+														    type: 'bar',
+														    data: {
+														      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+														      datasets: [{
+														        label: '# of Votes',
+														        data: [12, 19, 3, 5, 2, 3],
+														        borderWidth: 1
+														      }]
+														    },
+														    options: {
+														      scales: {
+														        y: {
+														          beginAtZero: true
+														        }
+														      }
+														    }
+														  });
+														</script>
 											<section>
 												<h3>So in conclusion ...</h3>
 												<p>
@@ -205,44 +226,6 @@
 												</div>
 												<div class="col-3 col-6-medium col-12-small">
 
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-															<h3><a href="#">And Another</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
-
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
-
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
-
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><a href="#" class="button large">Do Something</a></li>
-														<li><a href="#" class="button alt large">Think About It</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</section>
-
-							</div>
-						</div>
-					</div>
-				</section>
 
 			<!-- Footer -->
 				<footer id="footer">
