@@ -14,21 +14,19 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     .then((response) => response.json())
     .then((data) => {
   // Estrai le metriche desiderate dalla risposta API
-  const metrics = {
-    channelTitle: data.items[0].snippet.title,
-    subscribers: data.items[0].statistics.subscriberCount,
-    views: data.items[0].statistics.viewCount,
-    videos: data.items[0].statistics.videoCount,
+  const title = channelTitle: data.items[0].snippet.title,
+    const subscrivers = subscribers: data.items[0].statistics.subscriberCount,
+    const views = views: data.items[0].statistics.viewCount,
+    const video = videos: data.items[0].statistics.videoCount,
   };
   
   // Visualizza le metriche nell'elemento div "metrics"
-      const metricsElement = document.getElementById("metrics");
-      metricsElement.innerHTML = `
-        <h2>Metriche per il canale ${metrics.channelTitle}</h2>
-        <p>Numero di iscritti: ${metrics.subscribers}</p>
-        <p>Numero di visualizzazioni: ${metrics.views}</p>
-        <p>Numero di video: ${metrics.videos}</p>
-      `;
+      const titleElement = document.getElementById("subscribers");
+      titleElement.innerHTML = `<p>Numero di iscritti: ${metrics.subscribers}</p>`;
+       const viewslement = document.getElementById("views");
+      titleElement.innerHTML = `<p>Numero di visualizzazioni: ${metrics.views}</p>`;
+        const videolement = document.getElementById("video");
+      titleElement.innerHTML = `<p>Numero di video: ${metrics.videos}</p>`; 
     })
     .catch((error) => {
       console.error("Si è verificato un errore durante la richiesta API:", error);
