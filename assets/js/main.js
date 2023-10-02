@@ -28,3 +28,22 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       console.error("Si è verificato un errore durante la richiesta API:", error);
     });
 });
+ 
+fetch(`GET https://youtube.googleapis.com/youtube/v3/videos?part=liveStreamingDetails%2Cplayer&id=Ks-_Mh1QhMc&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+    .then((response) => response.json())
+    .then((data) => {
+  // Estrai le metriche desiderate dalla risposta API
+  const video = { 
+    stream: data.items[0].liveStreamingDetails,
+    player: data.items[0].player, 
+  }; 
+ // Visualizza le metriche nell'elemento div "metrics"
+      const videoElement = document.getElementById("video");
+      metricsElement.innerHTML = `
+        <h2>stream ${metrics.stream}</h2>
+        <li>player: ${metrics.player}</li>
+      `;
+    })
+    .catch((error) => {
+      console.error("Si è verificato un errore durante la richiesta API:", error);
+    });
