@@ -14,12 +14,12 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
     .then((response) => response.json())
     .then((data) => {
   // Estrai le metriche desiderate dalla risposta API
-  const metrics = {
-        channelTitle: data.items[0].snippet.title,
-        subscribers: data.items[0].statistics.subscriberCount,
-        views: data.items[0].statistics.viewCount,
-        videos: data.items[0].statistics.videoCount,
-      };
+ const metrics = {
+  channelTitle: data.items[0].snippet.title,
+  subscribers: data.items[0].statistics.subscriberCount,
+  views: data.items[0].statistics.viewCount,
+  videos: data.items[0].statistics.videoCount,
+};
 
       // Visualizza le metriche nell'elemento div "metrics"
       const titleElement = document.getElementById("subscribers");
