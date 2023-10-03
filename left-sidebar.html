@@ -130,7 +130,7 @@
 								</section>
 								<script>
 								        function searchChannelPlaylist() {
-								            const channelName = document.getElementById("channelName").value;
+								        const channelName = document.getElementById("channelName").value;
 								
 								            // Effettua una ricerca del canale su YouTube
 								            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
@@ -158,47 +158,42 @@
 								                .catch((error) => {
 								                    console.error("Si è verificato un errore durante la ricerca del canale:", error);
 								                });
+									function createChart(playlistItems) {
+										    // Estrai i dati desiderati dalla lista delle playlist
+										    const playlistTitles = playlistItems.map((playlist) => playlist.snippet.title);
+										    const playlistVideoCounts = playlistItems.map((playlist) => playlist.contentDetails.itemCount);
+										
+										    // Crea un elemento canvas nel tuo HTML per il grafico
+										    const canvas = document.createElement("canvas");
+										    canvas.id = "myChart";
+										    document.getElementById("chartContainer").appendChild(canvas);
+										
+										    // Crea il tuo grafico Chart.js
+										    const ctx = canvas.getContext("2d");
+										    new Chart(ctx, {
+										        type: "bar",
+										        data: {
+										            labels: playlistTitles,
+										            datasets: [{
+										                label: "Numero di Video",
+										                data: playlistVideoCounts,
+										                backgroundColor: "rgba(75, 192, 192, 0.2)",
+										                borderColor: "rgba(75, 192, 192, 1)",
+										                borderWidth: 1,
+										            }],
+										        },
+										        options: {
+										            scales: {
+										                y: {
+										                    beginAtZero: true,
+										                },
+										            },
+										        },
+										    });
+										}
+
 								        }
-									const numeroDiVideo = 100; // Sostituisci con il numero di video ottenuto dall'API
-									const numeroDiIscritti = 5000; // Sostituisci con il numero di iscritti ottenuto dall'API
-									const altriDati = 200;
-								    </script>
-								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-								<script>
-								    // Dati del grafico (sostituisci questi dati con i tuoi dati effettivi)
-								    const chartConfig = {
-								        type: 'bar',
-								        data: {
-								            labels: ['Numero di video', 'Iscritti', 'Altri dati'],
-								            datasets: [{
-								                label: 'Dati del Canale',
-								                data: [numeroDiVideo, numeroDiIscritti, altriDati],
-								                backgroundColor: [
-								                    'red',
-								                    'blue',
-								                    'yellow'
-								                ],
-								                borderColor: [
-								                    'red',
-								                    'blue',
-								                    'yellow'
-								                ],
-								                borderWidth: 1
-								            }]
-								        },
-								        options: {
-								            scales: {
-								                y: {
-								                    beginAtZero: true
-								                }
-								            }
-								        }
-								    };
-								
-								    // Crea il grafico
-								    const ctx = document.getElementById('myChart').getContext('2d');
-								    new Chart(ctx, chartConfig);
-								</script>
+									
 							</section>
 						</div>
 					</div>
