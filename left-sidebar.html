@@ -53,7 +53,18 @@
 									<li>Scienza e tecnologia: 28</li>
 								</ul>
 								<a href="#" class="button alt">Learn more</a>
-							</section> 
+							</section>
+
+							<!-- Something -->
+							<section>
+								<h2 class="major"><span>Magna Feugiat</span></h2>
+								<p>
+									Rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
+									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+								</p>
+								<a href="#" class="button alt">Learn more</a>
+							</section>
 						</div>
 					</div>
 					<div class="col-9 col-12-medium imp-medium">
@@ -61,8 +72,12 @@
 							<!-- Content -->
 							<article class="box page-content">
 								<header>
-									<h2>Video Popolari su YouTube</h2>
-									<p>Cerca i video più popolari nel mondo</p> 
+									<h2>Left Sidebar</h2>
+									<p>Semper amet scelerisque metus faucibus morbi congue mattis</p>
+									<ul class="meta">
+										<li class="icon fa-clock">5 days ago</li>
+										<li class="icon fa-comments"><a href="#">1,024</a></li>
+									</ul>
 								</header>
 								<section>
 									<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
@@ -72,16 +87,28 @@
 										</div>
 									</p>
 								</section>
+					    <h1>Video Popolari su YouTube</h1>
 					    
 					    <label for="regionCode">Seleziona un Paese:</label>
 					    <select id="regionCode">
 					        <option value="US">Stati Uniti</option>
 					        <option value="CA">Canada</option>
 					        <option value="IT">Italia</option>
-					    </select> 
+					    </select>
+					
+					    <label for="videoCategoryId">Seleziona una Categoria:</label>
+					    <select id="regionCode">
+					        <option value="film">Film e animazione: 1</option>
+					        <option value="sport">Sport: 17</option> 
+					        <option value="videogiochi">Videogiochi: 20</option> 
+					        <option value="scienza">Scienza e tecnologia: 28</option> 
+					    </select>
 					    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
+					
 					    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
+					
 					    <ul id="videoList"></ul>
+					
 					    <canvas id="myChart" width="400" height="400"></canvas>
     <!-- Copyright -->
 				<div id="copyright">
