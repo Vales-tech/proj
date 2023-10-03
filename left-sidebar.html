@@ -109,91 +109,93 @@
 									</ul>
 								</header>
 								<section>
-									<div id="video">
-									            <!-- Qui verranno visualizzati i dettagli del video -->
-									        </div>
-									    </p>
-									    <div id="page-wrapper"> 
-									        <form id="channelForm">
-									            <label for="channelName">Inserisci il nome del canale:</label>
-									            <input type="text" id="channelName" placeholder="insert channel name" required>
-									            <button onclick="searchChannelPlaylist()">Cerca Playlist</button>
-									            <div id="playlistResults"></div>
-									        </form>
-									        <ul id="playlistList"></ul>
-									        <canvas id="chartContainer" width="400" height="400"></canvas>
-									    </div>
-									</section>
-									
-									<script>
-									    function searchChannelPlaylist() {
-									        const channelName = document.getElementById("channelName").value;
-									
-									        // Effettua una ricerca del canale su YouTube
-									        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-									            .then((response) => response.json())
-									            .then((data) => {
-									                // Estrai l'ID del primo canale trovato
-									                const channelId = data.items[0].id.channelId;
-									
-									                // Cerca la playlist del canale
-									                fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-									                    .then((response) => response.json())
-									                    .then((playlistData) => {
-									                        // Visualizza le playlist trovate
-									                        const playlistResults = document.getElementById("playlistResults");
-									                        playlistResults.innerHTML = "";
-									
-									                        playlistData.items.forEach((playlist) => {
-									                            playlistResults.innerHTML += `<p>${playlist.snippet.title}</p>`;
-									                        });
-									
-									                        // Dopo aver ottenuto i dati della playlist, puoi creare il grafico
-									                        createChart(playlistData.items);
-									                    })
-									                    .catch((error) => {
-									                        console.error("Si è verificato un errore durante la ricerca della playlist:", error);
-									                    });
-									            })
-									            .catch((error) => {
-									                console.error("Si è verificato un errore durante la ricerca del canale:", error);
-									            });
-									    }
-									
-									    function createChart(playlistItems) {
-									        // Estrai i dati desiderati dalla lista delle playlist
-									        const playlistTitles = playlistItems.map((playlist) => playlist.snippet.title);
-									        const playlistVideoCounts = playlistItems.map((playlist) => playlist.contentDetails.itemCount);
-									
-									        // Crea un elemento canvas nel tuo HTML per il grafico
-									        const canvas = document.createElement("canvas");
-									        canvas.id = "myChart";
-									        document.getElementById("chartContainer").appendChild(canvas);
-									
-									        // Crea il tuo grafico Chart.js
-									        const ctx = canvas.getContext("2d");
-									        new Chart(ctx, {
-									            type: "bar",
-									            data: {
-									                labels: playlistTitles,
-									                datasets: [{
-									                    label: "Numero di Video",
-									                    data: playlistVideoCounts,
-									                    backgroundColor: "rgba(75, 192, 192, 0.2)",
-									                    borderColor: "rgba(75, 192, 192, 1)",
-									                    borderWidth: 1,
-									                }],
-									            },
-									            options: {
-									                scales: {
-									                    y: {
-									                        beginAtZero: true,
-									                    },
-									                },
-									            },
-									        });
-									    }
-									</script>
+								    <span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+								    <p>
+								        <div id="video">
+								            <!-- Qui verranno visualizzati i dettagli del video -->
+								        </div>
+								    </p>
+								    <div id="page-wrapper">
+								        <h1>Playlist di YouTube</h1>
+								        <form id="channelForm">
+								            <label for="channelName">Inserisci il nome del canale:</label>
+								            <input type="text" id="channelName" placeholder="insert channel name" required>
+								            <button onclick="searchChannelPlaylist()">Cerca Playlist</button>
+								            <div id="playlistResults"></div>
+								        </form>
+								        <ul id="playlistList"></ul>
+								        <canvas id="myChart" width="400" height="400"></canvas>
+								    </div>
+								</section>
+								
+								<script>
+								    function searchChannelPlaylist() {
+								        const channelName = document.getElementById("channelName").value;
+								
+								        // Effettua una ricerca del canale su YouTube
+								        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=YOUR_API_KEY`)
+								            .then((response) => response.json())
+								            .then((data) => {
+								                // Estrai l'ID del primo canale trovato
+								                const channelId = data.items[0].id.channelId;
+								
+								                // Cerca la playlist del canale
+								                fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=YOUR_API_KEY`)
+								                    .then((response) => response.json())
+								                    .then((playlistData) => {
+								                        // Visualizza le playlist trovate
+								                        const playlistResults = document.getElementById("playlistResults");
+								                        playlistResults.innerHTML = "";
+								
+								                        playlistData.items.forEach((playlist) => {
+								                            playlistResults.innerHTML += `<p>${playlist.snippet.title}</p>`;
+								                        });
+								
+								                        // Dopo aver ottenuto i dati della playlist, puoi creare il grafico
+								                        createChart(playlistData.items);
+								                    })
+								                    .catch((error) => {
+								                        console.error("Si è verificato un errore durante la ricerca della playlist:", error);
+								                    });
+								            })
+								            .catch((error) => {
+								                console.error("Si è verificato un errore durante la ricerca del canale:", error);
+								            });
+								    }
+								
+								    function createChart(playlistItems) {
+								        // Estrai i dati desiderati dalla lista delle playlist
+								        const playlistTitles = playlistItems.map((playlist) => playlist.snippet.title);
+								        const playlistVideoCounts = playlistItems.map((playlist) => playlist.contentDetails.itemCount);
+								
+								        // Crea un elemento canvas nel tuo HTML per il grafico
+								        const canvas = document.getElementById("myChart");
+								        const ctx = canvas.getContext("2d");
+								
+								        // Crea il tuo grafico Chart.js
+								        new Chart(ctx, {
+								            type: "bar",
+								            data: {
+								                labels: playlistTitles,
+								                datasets: [{
+								                    label: "Numero di Video",
+								                    data: playlistVideoCounts,
+								                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+								                    borderColor: "rgba(75, 192, 192, 1)",
+								                    borderWidth: 1,
+								                }],
+								            },
+								            options: {
+								                scales: {
+								                    y: {
+								                        beginAtZero: true,
+								                    },
+								                },
+								            },
+								        });
+								    }
+								</script>
+
 							</section>
 						</div>
 					</div>
