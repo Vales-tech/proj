@@ -159,47 +159,45 @@
 								                    console.error("Si è verificato un errore durante la ricerca del canale:", error);
 								                });
 								        }
+									const numeroDiVideo = 100; // Sostituisci con il numero di video ottenuto dall'API
+									const numeroDiIscritti = 5000; // Sostituisci con il numero di iscritti ottenuto dall'API
+									const altriDati = 200;
 								    </script>
 								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 								<script>
-								// Codice per creare un grafico Chart.js
-								const ctx = document.getElementById('myChart').getContext('2d');
+								    // Dati del grafico (sostituisci questi dati con i tuoi dati effettivi)
+								    const chartConfig = {
+								        type: 'bar',
+								        data: {
+								            labels: ['Numero di video', 'Iscritti', 'Altri dati'],
+								            datasets: [{
+								                label: 'Dati del Canale',
+								                data: [numeroDiVideo, numeroDiIscritti, altriDati],
+								                backgroundColor: [
+								                    'red',
+								                    'blue',
+								                    'yellow'
+								                ],
+								                borderColor: [
+								                    'red',
+								                    'blue',
+								                    'yellow'
+								                ],
+								                borderWidth: 1
+								            }]
+								        },
+								        options: {
+								            scales: {
+								                y: {
+								                    beginAtZero: true
+								                }
+								            }
+								        }
+								    };
 								
-								// Dati del grafico (modifica questi dati con i tuoi dati effettivi)
-								const data = {
-								    labels: ['Numero di video', 'Iscritti', 'Altri dati'],
-								    datasets: [{
-								        label: 'Dati del Canale',
-								        data: [numeroDiVideo, numeroDiIscritti, altriDati],
-								        backgroundColor: [
-								            'red',
-								            'blue',
-								            'yellow'
-								        ],
-								        borderColor: [
-								            'red',
-								            'blue',
-								            'yellow'
-								        ],
-								        borderWidth: 1
-								    }]
-								};
-
-								// Configurazione del grafico
-								const options = {
-								  scales: {
-								    y: {
-								      beginAtZero: true
-								    }
-								  }
-								};
-								
-								// Crea il grafico
-								const myChart = new Chart(ctx, {
-								  type: 'bar',
-								  data: data,
-								  options: options
-								});
+								    // Crea il grafico
+								    const ctx = document.getElementById('myChart').getContext('2d');
+								    new Chart(ctx, chartConfig);
 								</script>
 							</section>
 						</div>
