@@ -172,73 +172,20 @@
 		<script src="assets/js/util.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 								<script>
-								    function searchChannelPlaylist() {
-								        const channelName = document.getElementById("channelName").value;
-								
-								        // Effettua una ricerca del canale su YouTube
-								        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-								            .then((response) => response.json())
-								            .then((data) => {
-								                // Estrai l'ID del primo canale trovato
-										    console.log("Richiesta effettuata con successo", data);  
-								                const channelId = data.items[0].id.channelId;
-										console.log("Channel ID:", channelId);
-										console.log("Playlist Data:", playlistData);
-								                // Cerca la playlist del canale
-								                fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-								                    .then((response) => response.json())
-								                    .then((playlistData) => {
-								                        // Visualizza le playlist trovate
-								                        const playlistResults = document.getElementById("playlistResults");
-								                        playlistResults.innerHTML = "";
-								
-								                        playlistData.items.forEach((playlist) => {
-								                            playlistResults.innerHTML += `<p>${playlist.snippet.title}</p>`;
-								                        });
-								
-								                        // Dopo aver ottenuto i dati della playlist, puoi creare il grafico
-								                        createChart(playlistData.items);
-								                    })
-								                    .catch((error) => {
-								                        console.error("Si è verificato un errore durante la ricerca della playlist:", error);
-								                    });
-								            })
-								            .catch((error) => {
-								                console.error("Si è verificato un errore durante la ricerca del canale:", error);
-								            });
-								    }
-								
-								    function createChart(playlistItems) {
-								        // Estrai i dati desiderati dalla lista delle playlist
-								        const playlistTitles = playlistItems.map((playlist) => playlist.snippet.title);
-								        const playlistVideoCounts = playlistItems.map((playlist) => playlist.contentDetails.itemCount);
-								
-								        // Crea un elemento canvas nel tuo HTML per il grafico
-								        const canvas = document.getElementById("myChart");
-								        const ctx = canvas.getContext("2d");
-								
-								        // Crea il tuo grafico Chart.js
-								        new Chart(ctx, {
-								            type: "bar",
-								            data: {
-								                labels: playlistTitles,
-								                datasets: [{
-								                    label: "Numero di Video",
-								                    data: playlistVideoCounts,
-								                    backgroundColor: "rgba(75, 192, 192, 0.2)",
-								                    borderColor: "rgba(75, 192, 192, 1)",
-								                    borderWidth: 1,
-								                }],
-								            },
-								            options: {
-								                scales: {
-								                    y: {
-								                        beginAtZero: true,
-								                    },
-								                },
-								            },
-								        });
-								    }
-								</script>
+									function searchPopularVideos() {
+    const searchTerm = document.getElementById("searchTerm").value;
+    const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
+
+    fetch(`https:/https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+        .then((response) => response.json())
+        .then((data) => {
+            // Processa i dati dei video qui
+            console.log(data.items); // Puoi visualizzare i dati dei video nella console
+        })
+        .catch((error) => {
+            console.error("Si è verificato un errore durante la ricerca dei video:", error);
+        });
+}
+								    	</script>
 </body>
 </html>
