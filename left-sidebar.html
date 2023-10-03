@@ -110,37 +110,38 @@
 									</ul>
 								</header>
 								<section>
-									<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
-									<p>
-										<div id="video">
-											<!-- Qui verranno visualizzati i dettagli del video -->
-										</div>
-									</p>					
-									<div id="page-wrapper">
-										<h1>Playlist di YouTube</h1>
-										<form id="channelForm">
-											<label for="channelName">Inserisci il nome del canale:</label>
-											<input type="text" id="channelName" placeholder="insert channel name" required>
-											<button onclick="searchChannelPlaylist()">Cerca Playlist</button>
-											<div id="playlistResults"></div>
-										</form>
-										<ul id="playlistList"></ul>
-										<canvas id=""chartContainer" width="400" height="400"></canvas> 
-									</div>
-								</section>
-								<script>
+									    <span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+									    <p>
+									        <div id="video">
+									            <!-- Qui verranno visualizzati i dettagli del video -->
+									        </div>
+									    </p>
+									    <div id="page-wrapper">
+									        <h1>Playlist di YouTube</h1>
+									        <form id="channelForm">
+									            <label for="channelName">Inserisci il nome del canale:</label>
+									            <input type="text" id="channelName" placeholder="insert channel name" required>
+									            <button onclick="searchChannelPlaylist()">Cerca Playlist</button>
+									            <div id="playlistResults"></div>
+									        </form>
+									        <ul id="playlistList"></ul>
+									        <canvas id="chartContainer" width="400" height="400"></canvas>
+									    </div>
+									</section>
+									
+									<script>
 									    function searchChannelPlaylist() {
 									        const channelName = document.getElementById("channelName").value;
 									
 									        // Effettua una ricerca del canale su YouTube
-									        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+									        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=YOUR_API_KEY`)
 									            .then((response) => response.json())
 									            .then((data) => {
-									                // Estrai l'ID del primo canale trovato 
+									                // Estrai l'ID del primo canale trovato
 									                const channelId = data.items[0].id.channelId;
 									
 									                // Cerca la playlist del canale
-									                fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+									                fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=YOUR_API_KEY`)
 									                    .then((response) => response.json())
 									                    .then((playlistData) => {
 									                        // Visualizza le playlist trovate
@@ -196,10 +197,7 @@
 									            },
 									        });
 									    }
-								</script>
-
-								        }
-									
+									</script>
 							</section>
 						</div>
 					</div>
