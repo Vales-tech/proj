@@ -123,9 +123,9 @@
 
         function searchPopularVideos() {
             const searchTerm = document.getElementById("searchTerm").value;
-            const apiKey = "YOUR_API_KEY"; // Sostituisci con la tua chiave API YouTube
+            const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; // Sostituisci con la tua chiave API YouTube
 
-            fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&order=viewCount&key=${apiKey}`)
+            fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&order=viewCount&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
                 .then((response) => response.json())
                 .then((data) => {
                     const videos = data.items;
