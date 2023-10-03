@@ -128,30 +128,46 @@
 										<canvas id="myChart" width="400" height="400"></canvas>
 									</div>
 								</section>
-    <h1>Video Popolari su YouTube</h1>
-    
-    <label for="regionCode">Seleziona un Paese:</label>
-    <select id="regionCode">
-        <option value="US">Stati Uniti</option>
-        <option value="CA">Canada</option>
-        <option value="IT">Italia</option>
-    </select>
+					    <h1>Video Popolari su YouTube</h1>
+					    
+					    <label for="regionCode">Seleziona un Paese:</label>
+					    <select id="regionCode">
+					        <option value="US">Stati Uniti</option>
+					        <option value="CA">Canada</option>
+					        <option value="IT">Italia</option>
+					    </select>
+					
+					    <label for="videoCategoryId">Seleziona una Categoria:</label>
+					    <select id="regionCode">
+					        <option value="film">Film e animazione: 1</option>
+					        <option value="sport">Sport: 17</option> 
+					        <option value="videogiochi">Videogiochi: 20</option> 
+					        <option value="scienza">Scienza e tecnologia: 28</option> 
+					    </select>
+					    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
+					
+					    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
+					
+					    <ul id="videoList"></ul>
+					
+					    <canvas id="myChart" width="400" height="400"></canvas>
+    <!-- Copyright -->
+				<div id="copyright">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 
-    <label for="videoCategoryId">Seleziona una Categoria:</label>
-    <select id="regionCode">
-        <option value="film">Film e animazione: 1</option>
-        <option value="sport">Sport: 17</option> 
-        <option value="videogiochi">Videogiochi: 20</option> 
-        <option value="scienza">Scienza e tecnologia: 28</option> 
-    </select>
-    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
-
-    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
-
-    <ul id="videoList"></ul>
-
-    <canvas id="myChart" width="400" height="400"></canvas>
-
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         function searchPopularVideos() {
             const regionCode = document.getElementById("regionCode").value;
@@ -211,5 +227,6 @@
             });
         }
     </script>
+								
 </body>
 </html>
