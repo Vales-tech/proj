@@ -167,30 +167,24 @@
 								
 								// Dati del grafico (modifica questi dati con i tuoi dati effettivi)
 								const data = {
-								  labels: ['video', 'iscritti', 'bla', 'Green', 'Purple', 'Orange'],
-								  datasets: [{
-								    label: '# of Votes',
-								    data: [12, 19, 3, 5, 2, 3],
-								    backgroundColor: [
-								      'red',
-								      'blue',
-								      'yellow',
-								      'green',
-								      'purple',
-								      'orange'
-								    ],
-								    borderColor: [
-								      'red',
-								      'blue',
-								      'yellow',
-								      'green',
-								      'purple',
-								      'orange'
-								    ],
-								    borderWidth: 1
-								  }]
+								    labels: ['Numero di video', 'Iscritti', 'Altri dati'],
+								    datasets: [{
+								        label: 'Dati del Canale',
+								        data: [numeroDiVideo, numeroDiIscritti, altriDati],
+								        backgroundColor: [
+								            'red',
+								            'blue',
+								            'yellow'
+								        ],
+								        borderColor: [
+								            'red',
+								            'blue',
+								            'yellow'
+								        ],
+								        borderWidth: 1
+								    }]
 								};
-								
+
 								// Configurazione del grafico
 								const options = {
 								  scales: {
