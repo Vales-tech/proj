@@ -31,7 +31,7 @@
             const videoCategoryId = document.getElementById("videoCategoryId").value;
             const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
 
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc}`)
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.items && data.items.length > 0) {
