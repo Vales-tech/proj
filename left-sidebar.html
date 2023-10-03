@@ -16,7 +16,13 @@
         <option value="IT">Italia</option>
     </select>
 
-    <label for="videoCategoryId">Seleziona una Categoria (Facoltativo):</label>
+    <label for="videoCategoryId">Seleziona una Categoria:</label>
+    <select id="regionCode">
+        <option value="film">Film e animazione: 1</option>
+        <option value="sport">Sport: 17</option> 
+        <option value="videogiochi">Videogiochi: 20</option> 
+        <option value="scienza">Scienza e tecnologia: 28</option> 
+    </select>
     <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
 
     <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
