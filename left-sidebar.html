@@ -115,42 +115,51 @@
 										<div id="video">
 											<!-- Qui verranno visualizzati i dettagli del video -->
 										</div>
-									</p>
+									</p>					
 									<div id="page-wrapper">
 										<h1>Playlist di YouTube</h1>
 										<form id="channelForm">
-											<label for="channelName">Inserisci il nome utente del canale YouTube:</label>
+											<label for="channelName">Inserisci il nome del canale:</label>
 											<input type="text" id="channelName" placeholder="insert channel name" required>
-											<button type="submit">Cerca e ottieni le metriche</button> 
+											<button onclick="searchChannelPlaylist()">Cerca Playlist</button>
+											<div id="playlistResults"></div>
 										</form>
 										<ul id="playlistList"></ul>
 										<canvas id="myChart" width="400" height="400"></canvas>
 									</div>
 								</section>
 								<script>
-									// Esegui una richiesta API per i dettagli del video
-									fetch(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-										.then((response) => response.json())
-										.then((data) => {
-											// Estrai le metriche desiderate dalla risposta API
-											const video = { 
-												subscribers: data.items[0].statistics.subscriberCount,
-												views: data.items[0].statistics.viewCount,
-												videos: data.items[0].statistics.videoCount,								
-											}; 
-
-											// Visualizza le metriche nell'elemento div "video"
-											const videoElement = document.getElementById("video");
-											videoElement.innerHTML = `
-												<p>Numero di iscritti: ${video.subscribers}</p>
-												<p>Numero di visualizzazioni: ${video.views}</p>
-												<p>Numero di video: ${video.videos}</p>
-											`;
-										})
-										.catch((error) => {
-											console.error("Si è verificato un errore durante la richiesta API:", error);
-										});
-								</script>
+								        function searchChannelPlaylist() {
+								            const channelName = document.getElementById("channelName").value;
+								
+								            // Effettua una ricerca del canale su YouTube
+								            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+								                .then((response) => response.json())
+								                .then((data) => {
+								                    // Estrai l'ID del primo canale trovato 
+								                    const channelId = data.items[0].id.channelId;
+								
+								                    // Cerca la playlist del canale
+								                    fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${channelId}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+								                        .then((response) => response.json())
+								                        .then((playlistData) => {
+								                            // Visualizza le playlist trovate
+								                            const playlistResults = document.getElementById("playlistResults");
+								                            playlistResults.innerHTML = "";
+								
+								                            playlistData.items.forEach((playlist) => {
+								                                playlistResults.innerHTML += `<p>${playlist.snippet.title}</p>`;
+								                            });
+								                        })
+								                        .catch((error) => {
+								                            console.error("Si è verificato un errore durante la ricerca della playlist:", error);
+								                        });
+								                })
+								                .catch((error) => {
+								                    console.error("Si è verificato un errore durante la ricerca del canale:", error);
+								                });
+								        }
+								    </script>
 								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 								<script>
 								// Codice per creare un grafico Chart.js
