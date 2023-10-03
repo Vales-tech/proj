@@ -31,7 +31,183 @@
             const videoCategoryId = document.getElementById("videoCategoryId").value;
             const apiKey = "INSERISCI_LA_TUA_API_KEY_QUI"; 
 
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${apiKey}`)
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Popolari su YouTube</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Video Popolari su YouTube</h1>
+    
+    <label for="regionCode">Seleziona un Paese:</label>
+    <select id="regionCode">
+        <option value="US">Stati Uniti</option>
+        <option value="CA">Canada</option>
+        <!-- Aggiungi altri paesi secondo le necessità -->
+    </select>
+
+    <label for="videoCategoryId">Seleziona una Categoria (Facoltativo):</label>
+    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
+
+    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
+
+    <ul id="videoList"></ul>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+        function searchPopularVideos() {
+            const regionCode = document.getElementById("regionCode").value;
+            const videoCategoryId = document.getElementById("videoCategoryId").value;
+            const apiKey = "INSERISCI_LA_TUA_API_KEY_QUI"; 
+
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Popolari su YouTube</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Video Popolari su YouTube</h1>
+    
+    <label for="regionCode">Seleziona un Paese:</label>
+    <select id="regionCode">
+        <option value="US">Stati Uniti</option>
+        <option value="CA">Canada</option>
+        <!-- Aggiungi altri paesi secondo le necessità -->
+    </select>
+
+    <label for="videoCategoryId">Seleziona una Categoria (Facoltativo):</label>
+    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
+
+    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
+
+    <ul id="videoList"></ul>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+        function searchPopularVideos() {
+            const regionCode = document.getElementById("regionCode").value;
+            const videoCategoryId = document.getElementById("videoCategoryId").value;
+            const apiKey = "INSERISCI_LA_TUA_API_KEY_QUI"; 
+
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items && data.items.length > 0) {
+                        const videos = data.items;
+                        const videoList = document.getElementById("videoList");
+                        videoList.innerHTML = "";
+
+                        videos.forEach(video => {
+                            const videoTitle = video.snippet.title;
+                            const videoId = video.id;
+                            const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
+                            videoList.innerHTML += `<li><a href="${videoLink}" target="_blank">${videoTitle}</a></li>`;
+                        });
+
+                        // Crea il grafico
+                        createChart(videos);
+                    } else {
+                        console.error("Nessun video trovato.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Si è verificato un errore durante la ricerca dei video:", error);
+                });
+        }
+
+        function createChart(videos) {
+            const videoTitles = videos.map(video => video.snippet.title);
+            const videoViews = videos.map(video => video.statistics.viewCount);
+
+            const ctx = document.getElementById("myChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: videoTitles,
+                    datasets: [{
+                        label: "Visualizzazioni",
+                        data: videoViews,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items && data.items.length > 0) {
+                        const videos = data.items;
+                        const videoList = document.getElementById("videoList");
+                        videoList.innerHTML = "";
+
+                        videos.forEach(video => {
+                            const videoTitle = video.snippet.title;
+                            const videoId = video.id;
+                            const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
+                            videoList.innerHTML += `<li><a href="${videoLink}" target="_blank">${videoTitle}</a></li>`;
+                        });
+
+                        // Crea il grafico
+                        createChart(videos);
+                    } else {
+                        console.error("Nessun video trovato.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Si è verificato un errore durante la ricerca dei video:", error);
+                });
+        }
+
+        function createChart(videos) {
+            const videoTitles = videos.map(video => video.snippet.title);
+            const videoViews = videos.map(video => video.statistics.viewCount);
+
+            const ctx = document.getElementById("myChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: videoTitles,
+                    datasets: [{
+                        label: "Visualizzazioni",
+                        data: videoViews,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.items && data.items.length > 0) {
