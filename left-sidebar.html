@@ -125,16 +125,33 @@
             const searchTerm = document.getElementById("searchTerm").value;
             const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; // Sostituisci con la tua chiave API YouTube
 
-            fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&order=viewCount&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-                .then((response) => response.json())
-                .then((data) => {
-                    const videos = data.items;
-                    displayVideos(videos); // Chiama questa funzione per visualizzare i video nella pagina
-                })
-                .catch((error) => {
-                    console.error("Si è verificato un errore durante la ricerca dei video:", error);
-                });
+           fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&order=viewCount&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+    .then((response) => response.json())
+    .then((data) => {
+        // Controlla se la risposta contiene dati validi
+        if (data.items && data.items.length > 0) {
+            const videos = data.items; // Array di video restituiti
+
+            // Esempio: crea una lista di video
+            const videoList = document.getElementById("videoList");
+            videoList.innerHTML = ""; // Pulisce la lista precedente, se presente
+
+            videos.forEach((video) => {
+                const videoTitle = video.snippet.title;
+                const videoId = video.id.videoId;
+                const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
+
+                // Aggiunge il video alla lista
+                videoList.innerHTML += `<li><a href="${videoLink}" target="_blank">${videoTitle}</a></li>`;
+            });
+        } else {
+            console.error("La risposta API non contiene dati validi.");
         }
-    </script>
+    })
+    .catch((error) => {
+        console.error("Si è verificato un errore durante la ricerca dei video:", error);
+    });
+
+   </script>
 </body>
 </html>
