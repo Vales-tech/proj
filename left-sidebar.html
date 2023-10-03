@@ -129,7 +129,7 @@
 								</section>
 								<script>
 									// Esegui una richiesta API per i dettagli del video
-									fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+									fetch(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
 										.then((response) => response.json())
 										.then((data) => {
 											// Estrai le metriche desiderate dalla risposta API
