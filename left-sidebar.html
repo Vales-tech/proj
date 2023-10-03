@@ -1,157 +1,244 @@
 <!DOCTYPE HTML>
+<!--
+	TXT by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <title>Playlist</title>
-</head>
-<body class="is-preload">
-    <!-- Header -->
-    <header id="header">
-        <div class="logo container">
-            <div>
-                <h1><a href="index.html" id="logo">TXT</a></h1>
-                <p>A responsive site template by HTML5 UP</p>
-            </div>
-        </div>
-    </header>
+	<head> 
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>Playlist</title>
+	</head>
+	<body class="is-preload">		
+    		
+		<!-- Header -->
+		<header id="header">
+			<div class="logo container">
+				<div>
+					<h1><a href="index.html" id="logo">TXT</a></h1>
+					<p>A responsive site template by HTML5 UP</p>
+				</div>
+			</div>
+		</header>
 
-    <!-- Nav -->
-    <nav id="nav">
-        <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="left-sidebar.html">Form</a></li>
-            <li><a href="right-sidebar.html">Contatti</a></li>
-        </ul>
-    </nav>
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li class="current"><a href="index.html">Home</a></li>
+				<li><a href="left-sidebar.html">Form</a></li>
+				<li><a href="right-sidebar.html">Contatti</a></li>
+			</ul>
+		</nav>
 
-    <!-- Main -->
-    <section id="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-3 col-12-medium">
-                    <div class="sidebar">
-                        <!-- Sidebar -->
-                        <!-- Recent Posts -->
-                        <section>
-                            <h2 class="major"><span>Recent Posts</span></h2>
-                            <ul class="divided">
-                                <li>
-                                    <article class="box post-summary">
-                                        <h3><a href="#">A Subheading</a></h3>
-                                        <ul class="meta">
-                                            <li class="icon fa-clock">6 hours ago</li>
-                                            <li class="icon fa-comments"><a href="#">34</a></li>
-                                        </ul>
-                                    </article>
-                                </li>
-                                <!-- Altri elementi recenti qui -->
-                            </ul>
-                            <a href="#" class="button alt">Archives</a>
-                        </section>
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-3 col-12-medium">
+						<div class="sidebar">
+							<!-- Sidebar -->
+							<!-- Recent Posts -->
+							<section>
+								<h2 class="major"><span>Recent Posts</span></h2>
+								<ul class="divided">
+									<li>
+										<article class="box post-summary">
+											<h3><a href="#">A Subheading</a></h3>
+											<ul class="meta">
+												<li class="icon fa-clock">6 hours ago</li>
+												<li class="icon fa-comments"><a href="#">34</a></li>
+											</ul>
+										</article>
+									</li>
+									<li>
+										<article class="box post-summary">
+											<h3><a href="#">Another Subheading</a></h3>
+											<ul class="meta">
+												<li class="icon fa-clock">9 hours ago</li>
+												<li class="icon fa-comments"><a href="#">27</a></li>
+											</ul>
+										</article>
+									</li>
+									<li>
+										<article class="box post-summary">
+											<h3><a href="#">And Another</a></h3>
+											<ul class="meta">
+												<li class="icon fa-clock">Yesterday</li>
+												<li class="icon fa-comments"><a href="#">184</a></li>
+											</ul>
+										</article>
+									</li>
+								</ul>
+								<a href="#" class="button alt">Archives</a>
+							</section>
 
-                        <!-- Something -->
-                        <!-- Altre sezioni della sidebar qui -->
+							<!-- Something -->
+							<section>
+								<h2 class="major"><span>Ipsum Dolore</span></h2>
+								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+								<p>
+									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+								</p>
+								<a href="#" class="button alt">Learn more</a>
+							</section>
 
-                    </div>
-                </div>
-                <div class="col-9 col-12-medium imp-medium">
-                    <div class="content">
-                        <!-- Content -->
-                        <article class="box page-content">
-                            <header>
-                                <h2>Video Popolari su YouTube</h2>
-                                <p>cerca ciò che vuoi e visualizzane i video più popolari</p>
-                            </header>
-                            <section>
-                                <div id="searchForm">
-                                    <label for="searchTerm">Inserisci la tua ricerca:</label>
-                                    <input type="text" id="searchTerm" placeholder="Inserisci il termine di ricerca" required>
-                                    <button onclick="searchPopularVideos()">Cerca Video</button>
-                                </div>
-                                <ul id="videoList"></ul>
-                            </section>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+							<!-- Something -->
+							<section>
+								<h2 class="major"><span>Magna Feugiat</span></h2>
+								<p>
+									Rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
+									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+								</p>
+								<a href="#" class="button alt">Learn more</a>
+							</section>
+						</div>
+					</div>
+					<div class="col-9 col-12-medium imp-medium">
+						<div class="content">
+							<!-- Content -->
+							<article class="box page-content">
+								<header>
+									<h2>Left Sidebar</h2>
+									<p>Semper amet scelerisque metus faucibus morbi congue mattis</p>
+									<ul class="meta">
+										<li class="icon fa-clock">5 days ago</li>
+										<li class="icon fa-comments"><a href="#">1,024</a></li>
+									</ul>
+								</header>
+								<section>
+									<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+									<p>
+										<div id="video">
+											<!-- Qui verranno visualizzati i dettagli del video -->
+										</div>
+									</p>
+									<div id="page-wrapper">
+										<h1>Playlist di YouTube</h1>
+										<form id="channelForm">
+											<label for="channelName">Inserisci il nome utente del canale YouTube:</label>
+											<input type="text" id="channelName" placeholder="insert channel name" required>
+											<button type="submit">Cerca e ottieni le metriche</button> 
+										</form>
+										<ul id="playlistList"></ul>
+										<canvas id="myChart" width="400" height="400"></canvas>
+									</div>
+								</section>
+								<script>
+									// Esegui una richiesta API per i dettagli del video
+									fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+										.then((response) => response.json())
+										.then((data) => {
+											// Estrai le metriche desiderate dalla risposta API
+											const video = { 
+												subscribers: data.items[0].statistics.subscriberCount,
+												views: data.items[0].statistics.viewCount,
+												videos: data.items[0].statistics.videoCount,								
+											}; 
 
-    <!-- Contact -->
-    <section>
-        <h2 class="major"><span>Get in touch</span></h2>
-        <ul class="contact">
-            <li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-            <li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-            <li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
-            <li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-            <li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-        </ul>
-    </section>
+											// Visualizza le metriche nell'elemento div "video"
+											const videoElement = document.getElementById("video");
+											videoElement.innerHTML = `
+												<p>Numero di iscritti: ${video.subscribers}</p>
+												<p>Numero di visualizzazioni: ${video.views}</p>
+												<p>Numero di video: ${video.videos}</p>
+											`;
+										})
+										.catch((error) => {
+											console.error("Si è verificato un errore durante la richiesta API:", error);
+										});
+								</script>
+								<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+								<script>
+								// Codice per creare un grafico Chart.js
+								const ctx = document.getElementById('myChart').getContext('2d');
+								
+								// Dati del grafico (modifica questi dati con i tuoi dati effettivi)
+								const data = {
+								  labels: ['video', 'iscritti', 'bla', 'Green', 'Purple', 'Orange'],
+								  datasets: [{
+								    label: '# of Votes',
+								    data: [12, 19, 3, 5, 2, 3],
+								    backgroundColor: [
+								      'red',
+								      'blue',
+								      'yellow',
+								      'green',
+								      'purple',
+								      'orange'
+								    ],
+								    borderColor: [
+								      'red',
+								      'blue',
+								      'yellow',
+								      'green',
+								      'purple',
+								      'orange'
+								    ],
+								    borderWidth: 1
+								  }]
+								};
+								
+								// Configurazione del grafico
+								const options = {
+								  scales: {
+								    y: {
+								      beginAtZero: true
+								    }
+								  }
+								};
+								
+								// Crea il grafico
+								const myChart = new Chart(ctx, {
+								  type: 'bar',
+								  data: data,
+								  options: options
+								});
+								</script>
+							</section>
+							<!-- Altro contenuto qui -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script>
-        function displayVideos(videos) {
-            const videoList = document.getElementById("videoList");
-            videoList.innerHTML = ""; // Pulisce la lista dei video prima di aggiungere nuovi elementi
 
-            videos.forEach((video) => {
-                const videoItem = document.createElement("li");
-                const videoTitle = document.createElement("h3");
-                const videoThumbnail = document.createElement("img");
-                const videoViews = document.createElement("p");
+								 
+							<!-- Contact -->
+									<section>
+										<h2 class="major"><span>Get in touch</span></h2>
+										<ul class="contact">
+											<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
+											<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+											<li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
+											<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+											<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
+										</ul>
+									</section>
 
-                videoTitle.textContent = video.snippet.title;
-                videoThumbnail.src = video.snippet.thumbnails.default.url;
-                videoViews.textContent = `Visualizzazioni: ${video.statistics.viewCount}`;
+							</div>
+						</div>
 
-                videoItem.appendChild(videoTitle);
-                videoItem.appendChild(videoThumbnail);
-                videoItem.appendChild(videoViews);
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 
-                videoList.appendChild(videoItem);
-            });
-        }
-
-        function searchPopularVideos() {
-            const searchTerm = document.getElementById("searchTerm").value;
-            const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
-
-           fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&order=viewCount&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-    .then((response) => response.json())
-    .then((data) => {
-        // Controlla se la risposta contiene dati validi
-        if (data.items && data.items.length > 0) {
-            const videos = data.items; // Array di video restituiti
-
-            // Esempio: crea una lista di video
-            const videoList = document.getElementById("videoList");
-            videoList.innerHTML = ""; // Pulisce la lista precedente, se presente
-
-            videos.forEach((video) => {
-                const videoTitle = video.snippet.title;
-                const videoId = video.id.videoId;
-                const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
-
-                // Aggiunge il video alla lista
-                videoList.innerHTML += `<li><a href="${videoLink}" target="_blank">${videoTitle}</a></li>`;
-            });
-        } else {
-            console.error("La risposta API non contiene dati validi.");
-        }
-    })
-    .catch((error) => {
-        console.error("Si è verificato un errore durante la ricerca dei video:", error);
-    });
- }
-   </script>
-</body>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</body>
 </html>
