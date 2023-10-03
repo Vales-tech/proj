@@ -17,7 +17,7 @@
 
     <label for="videoCategoryId">Seleziona una Categoria (Facoltativo):</label>
     <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
-
+    
     <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
 
     <ul id="videoList"></ul>
@@ -25,9 +25,9 @@
     <canvas id="myChart" width="400" height="400"></canvas>
 
     <script>
+        const videoCategoryId = "0";
         function searchPopularVideos() {
             const regionCode = document.getElementById("regionCode").value;
-            const videoCategoryId = document.getElementById("videoCategoryId").value;
             const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
             
             fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
