@@ -10,14 +10,19 @@
     <h1>Video Popolari su YouTube</h1>
     
     <label for="regionCode">Seleziona un Paese:</label>
-    <select id="regionCode">
+    <select id="regionCodeSelect">
         <option value="US">Stati Uniti</option>
         <option value="CA">Canada</option>
         <option value="IT">Italia</option>
     </select>
 
-    <label for="videoCategoryId">Seleziona una Categoria (Facoltativo):</label>
-    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
+    <label for="videoCategoryId">Seleziona una Categoria:</label>
+    <select id="videoCategoryIdSelect">
+        <option value="1">Film e animazione</option>
+        <option value="17">Sport</option> 
+        <option value="20">Videogiochi</option> 
+        <option value="28">Scienza e tecnologia</option> 
+    </select>
 
     <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
 
@@ -27,11 +32,11 @@
 
     <script>
         function searchPopularVideos() {
-            const regionCode = document.getElementById("regionCode").value;
-            const videoCategoryId = document.getElementById("videoCategoryId").value;
+            const regionCode = document.getElementById("regionCodeSelect").value;
+            const videoCategoryId = document.getElementById("videoCategoryIdSelect").value;
             const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
 
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc}`)
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.items && data.items.length > 0) {
