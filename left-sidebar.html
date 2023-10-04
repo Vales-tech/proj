@@ -1,180 +1,135 @@
-<!DOCTYPE html> 
-<!--
-	TXT by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html lang="en">
 
-	<head> 
-		<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<title>Video Popolari su YouTube</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	</head> 
-<body class="is-preload">	
-<!-- Header -->
-		<header id="header">
-			<div class="logo container">
-				<div>
-					<h1><a href="index.html" id="logo">TXT</a></h1>
-					<p>A responsive site template by HTML5 UP</p>
-				</div>
-			</div>
-		</header>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Video Popolari su YouTube</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li class="current"><a href="index.html">Home</a></li>
-				<li><a href="left-sidebar.html">Form</a></li>
-				<li><a href="right-sidebar.html">Contatti</a></li>
-			</ul>
-		</nav>
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+        <div class="logo container">
+            <div>
+                <h1><a href="index.html" id="logo">TXT</a></h1>
+                <p>A responsive site template by HTML5 UP</p>
+            </div>
+        </div>
+    </header>
 
-		<!-- Main -->
-		<section id="main">
-			<div class="container">
-				<div class="row">
-					<div class="col-3 col-12-medium">
-						<div class="sidebar">
-							<!-- Sidebar -->
-							<!-- Recent Posts -->
-							<section>
-								<h2 class="major"><span>Recent Posts</span></h2>
-								<ul class="divided">
-									<li>
-										<article class="box post-summary">
-											<h3><a href="#">A Subheading</a></h3>
-											<ul class="meta">
-												<li class="icon fa-clock">6 hours ago</li>
-												<li class="icon fa-comments"><a href="#">34</a></li>
-											</ul>
-										</article>
-									</li>
-									<li>
-										<article class="box post-summary">
-											<h3><a href="#">Another Subheading</a></h3>
-											<ul class="meta">
-												<li class="icon fa-clock">9 hours ago</li>
-												<li class="icon fa-comments"><a href="#">27</a></li>
-											</ul>
-										</article>
-									</li>
-									<li>
-										<article class="box post-summary">
-											<h3><a href="#">And Another</a></h3>
-											<ul class="meta">
-												<li class="icon fa-clock">Yesterday</li>
-												<li class="icon fa-comments"><a href="#">184</a></li>
-											</ul>
-										</article>
-									</li>
-								</ul>
-								<a href="#" class="button alt">Archives</a>
-							</section>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="left-sidebar.html">Form</a></li>
+            <li><a href="right-sidebar.html">Contatti</a></li>
+        </ul>
+    </nav>
 
-							<!-- Something -->
-							<section>
-								<h2 class="major"><span>Ipsum Dolore</span></h2>
-								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								<p>
-									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
-								</p>
-								<a href="#" class="button alt">Learn more</a>
-							</section>
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-12-medium">
+                    <div class="sidebar">
+                        <!-- Sidebar -->
+                        <!-- Recent Posts -->
+                        <section>
+                            <h2 class="major"><span>Recent Posts</span></h2>
+                            <ul class="divided">
+                                <!-- Recent posts here -->
+                            </ul>
+                            <a href="#" class="button alt">Archives</a>
+                        </section>
 
-							<!-- Something -->
-							<section>
-								<h2 class="major"><span>Magna Feugiat</span></h2>
-								<p>
-									Rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-									Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
-								</p>
-								<a href="#" class="button alt">Learn more</a>
-							</section>
-						</div>
-					</div>
-					<div class="col-9 col-12-medium imp-medium">
-						<div class="content">
-							<!-- Content -->
-							<article class="box page-content">
-								<header>
-									<h2>Left Sidebar</h2>
-									<p>Semper amet scelerisque metus faucibus morbi congue mattis</p>
-									<ul class="meta">
-										<li class="icon fa-clock">5 days ago</li>
-										<li class="icon fa-comments"><a href="#">1,024</a></li>
-									</ul>
-								</header>
-								<section>
-									<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
-									<p>
-										<div id="video">
-											<!-- Qui verranno visualizzati i dettagli del video -->
-										</div>
-									</p>
-									<div id="page-wrapper">
-										<h1>Playlist di YouTube</h1>
-										<form id="channelForm">
-											<label for="channelName">Inserisci il nome utente del canale YouTube:</label>
-											<input type="text" id="channelName" placeholder="insert channel name" required>
-											<button type="submit">Cerca e ottieni le metriche</button> 
-										</form>
-										<ul id="playlistList"></ul>
-										<canvas id="myChart" width="400" height="400"></canvas>
-									</div>
-								</section>
-					    <h1>Video Popolari su YouTube</h1>
-					    
-					    <label for="regionCode">Seleziona un Paese:</label>
-					    <select id="regionCode">
-					        <option value="US">Stati Uniti</option>
-					        <option value="CA">Canada</option>
-					        <option value="IT">Italia</option>
-					    </select>
-					
-					    <label for="videoCategoryId">Seleziona una Categoria:</label>
-					    <select id="category">
-					        <option value="film">Film e animazione: 1</option>
-					        <option value="sport">Sport: 17</option> 
-					        <option value="videogiochi">Videogiochi: 20</option> 
-					        <option value="scienza">Scienza e tecnologia: 28</option> 
-					    </select>
-					    <input type="text" id="videoCategoryId" placeholder="Inserisci l'ID della categoria">
-					
-					    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
-					
-					    <ul id="videoList"></ul>
-					
-					    <canvas id="myChart" width="400" height="400"></canvas>
-    <!-- Copyright -->
-				<div id="copyright">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</div>
-		</footer>
+                        <!-- Something -->
+                        <section>
+                            <h2 class="major"><span>Ipsum Dolore</span></h2>
+                            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                            <p>
+                                Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+                                Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+                            </p>
+                            <a href="#" class="button alt">Learn more</a>
+                        </section>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script> 
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <!-- Something -->
+                        <section>
+                            <h2 class="major"><span>Magna Feugiat</span></h2>
+                            <p>
+                                Rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
+                                Donec sagittis massa et leo semper scele risque metus faucibus. Morbi congue mattis mi.
+                                Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum sed commodo luctus blandit.
+                            </p>
+                            <a href="#" class="button alt">Learn more</a>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-9 col-12-medium imp-medium">
+                    <div class="content">
+                        <!-- Content -->
+                        <article class="box page-content">
+                            <header>
+                                <h2>Video Popolari su YouTube</h2>
+                                <section>
+                                    <label for="regionCode">Seleziona un Paese:</label>
+                                    <select id="regionCode">
+                                        <option value="US">Stati Uniti</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="IT">Italia</option>
+                                    </select>
+
+                                    <label for="videoCategoryId">Seleziona una Categoria:</label>
+                                    <select id="videoCategoryId">
+                                        <option value="1">Film e animazione</option>
+                                        <option value="17">Sport</option>
+                                        <option value="20">Videogiochi</option>
+                                        <option value="28">Scienza e tecnologia</option>
+                                    </select>
+                                    <input type="text" id="videoCategoryName" placeholder="Nome della categoria (opzionale)">
+                                    <button onclick="searchPopularVideos()">Cerca Video Popolari</button>
+                                </section>
+
+                                <section>
+                                    <h2>Lista dei Video Popolari</h2>
+                                    <ul id="videoList"></ul>
+                                </section>
+                            </header>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div id="copyright">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
     <script>
         function searchPopularVideos() {
             const regionCode = document.getElementById("regionCode").value;
             const videoCategoryId = document.getElementById("videoCategoryId").value;
-            const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
+            const videoCategoryName = document.getElementById("videoCategoryName").value;
+            const apiKey = "YOUR_API_KEY"; // Sostituisci con la tua chiave API
 
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=${apiKey}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.items && data.items.length > 0) {
@@ -188,9 +143,6 @@
                             const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
                             videoList.innerHTML += `<li><a href="${videoLink}" target="_blank">${videoTitle}</a></li>`;
                         });
-
-                        // Crea il grafico
-                        createChart(videos);
                     } else {
                         console.error("Nessun video trovato.");
                     }
@@ -199,34 +151,7 @@
                     console.error("Si è verificato un errore durante la ricerca dei video:", error);
                 });
         }
-
-        function createChart(videos) {
-            const videoTitles = videos.map(video => video.snippet.title);
-            const videoViews = videos.map(video => video.statistics.viewCount);
-
-            const ctx = document.getElementById("myChart").getContext("2d");
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: videoTitles,
-                    datasets: [{
-                        label: "Visualizzazioni",
-                        data: videoViews,
-                        backgroundColor: "rgba(75, 192, 192, 0.2)",
-                        borderColor: "rgba(75, 192, 192, 1)",
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
     </script>
-								
 </body>
+
 </html>
