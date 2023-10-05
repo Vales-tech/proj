@@ -31,7 +31,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
           datasets: [
             {
               label: "Metriche del canale",
-              data: [5, 10, 20, 100, 150, 200],
+              data: dataValues,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)", // Colore per Subscribers
                 "rgba(54, 162, 235, 0.2)", // Colore per Views
