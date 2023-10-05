@@ -46,7 +46,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
               beginAtZero: true,
               suggestedMin: 100000, // Imposta il valore minimo
               suggestedMax: 100000000000, // Imposta il valore massimo
-              stepSize: 10000000, // Imposta l'incremento delle etichette sull'asse
+              stepSize: 10000, // Imposta l'incremento delle etichette sull'asse
             },
           },
         },
