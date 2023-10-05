@@ -25,7 +25,7 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       // Crea il grafico utilizzando Chart.js
       const ctx = canvas.getContext("2d");
       const myChart = new Chart(ctx, {
-        type: "radar",
+        type: "PolarArea",
         data: {
           labels: labels,
           datasets: [
