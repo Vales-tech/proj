@@ -22,27 +22,24 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       // Ottieni l'elemento canvas
       const canvas = document.getElementById("myChart");
 
-      // Crea il grafico utilizzando Chart.js
+       // Crea il grafico utilizzando Chart.js
       const ctx = canvas.getContext("2d");
       const myChart = new Chart(ctx, {
-  labels: [
-    'Red',
-    'Green',
-    'Yellow',
-    'Grey',
-    'Blue'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: dataValues,
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(75, 192, 192)',
-      'rgb(255, 205, 86)',
-      'rgb(201, 203, 207)',
-      'rgb(54, 162, 235)'
-    ]
-  }]
-});       
-});
+        type: "polarArea", // Imposta il tipo a "polarArea"
+        data: {
+          labels: ["Subscribers", "Views", "Videos"],
+          datasets: [
+            {
+              label: "Metriche del canale",
+              data: dataValues,
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(75, 192, 192)",
+                "rgb(255, 205, 86)",
+              ],
+            },
+          ],
+        },
+      });
+    });
 });
