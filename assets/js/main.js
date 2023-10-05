@@ -40,6 +40,16 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
             },
           ],
         },
-      });
+        options: {
+          scale: {
+            ticks: {
+              beginAtZero: true,
+              suggestedMin: 100000, // Imposta il valore minimo
+              suggestedMax: 100000000000, // Imposta il valore massimo
+              stepSize: 10000000, // Imposta l'incremento delle etichette sull'asse
+            },
+          },
+        },
+      });    
     });
 });
