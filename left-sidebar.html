@@ -136,7 +136,6 @@
         function searchPopularVideos() {
             const regionCode = document.getElementById("regionCode").value;
             const videoCategoryId = document.getElementById("videoCategoryId").value;
-            const videoCategoryName = document.getElementById("videoCategoryName").value;
             const apiKey = "AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc"; 
 
             fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=${regionCode}&videoCategoryId=${videoCategoryId}&maxResults=10&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
