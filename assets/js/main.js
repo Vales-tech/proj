@@ -45,3 +45,4 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
   }]
 });       
 });
+});
