@@ -25,13 +25,13 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       // Crea il grafico utilizzando Chart.js
       const ctx = canvas.getContext("2d");
       const myChart = new Chart(ctx, {
-        type: "Line",
+        type: "Radar",
         data: {
           labels: labels,
           datasets: [
             {
               label: "Metriche del canale",
-              data: dataValues,
+              data: [1000, 10000, 100000, 1000000, 10000000, 100000000],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)", // Colore per Subscribers
                 "rgba(54, 162, 235, 0.2)", // Colore per Views
