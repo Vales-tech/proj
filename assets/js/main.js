@@ -43,5 +43,5 @@ document.getElementById("channelForm").addEventListener("submit", function (e) {
       'rgb(54, 162, 235)'
     ]
   }]
-};       
+});       
 });
