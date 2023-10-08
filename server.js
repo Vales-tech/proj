@@ -1,13 +1,5 @@
 const express = require('express');
-
-let fetch;
-if (typeof window === 'undefined') {
-  // Se il codice viene eseguito lato server (Node.js), utilizza l'importazione dinamica
-  fetch = require('node-fetch');
-} else {
-  // Se il codice viene eseguito lato client (browser), utilizza fetch nativo del browser
-  fetch = window.fetch;
-}
+const axios = require('axios');
 
 const app = express();
 const port = 3000;
@@ -22,8 +14,8 @@ app.post('/getChannelMetrics', async (req, res) => {
   const channelName = req.body.channelName;
 
   try {
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YOUR_API_KEY`);
-    const data = await response.json();
+    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YOUR_API_KEY`);
+    const data = response.data;
     
     const metrics = {
       channelTitle: data.items[0].snippet.title,
