@@ -1,45 +1,36 @@
-// Gestore dell'invio del modulo
-document.getElementById("channelForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const channelName = document.getElementById("channelName").value;
+const express = require('express');
+const fetch = require('node-fetch');
 
-  // Esegui una richiesta API con il nome utente del canale
-  fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`)
-    .then((response) => response.json())
-    .then((data) => {
-      // Estrai le metriche desiderate dalla risposta API
-      const metrics = {
-        channelTitle: data.items[0].snippet.title,
-        subscribers: data.items[0].statistics.subscriberCount,
-        views: data.items[0].statistics.viewCount,
-        videos: data.items[0].statistics.videoCount,
-      };
+const app = express();
+const port = 3000;
 
-      // Creazione dei dati per il grafico
-      const labels = ["Subscribers", "Views", "Videos"];
-      const dataValues = [metrics.subscribers, metrics.views, metrics.videos];
+app.use(express.static('public')); // Serve il contenuto HTML, CSS e JavaScript dalla cartella 'public'
 
-      // Ottieni l'elemento canvas
-      const canvas = document.getElementById("myChart");
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html'); // Invia il file HTML principale
+});
 
-       // Crea il grafico utilizzando Chart.js
-      const ctx = canvas.getContext("2d");
-      const myChart = new Chart(ctx, {
-        type: "polarArea", // Imposta il tipo a "polarArea"
-        data: {
-          labels: ["Subscribers", "Views", "Videos"],
-          datasets: [
-            {
-              label: "Metriche del canale",
-              data: dataValues,
-              backgroundColor: [
-                "rgb(255, 99, 132)",
-                "rgb(75, 192, 192)",
-                "rgb(255, 205, 86)",
-              ],
-            },
-          ],
-        },
-      });
-    });
+app.post('/getChannelMetrics', async (req, res) => {
+  const channelName = req.body.channelName;
+
+  try {
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YOUR_API_KEY`);
+    const data = await response.json();
+    
+    const metrics = {
+      channelTitle: data.items[0].snippet.title,
+      subscribers: data.items[0].statistics.subscriberCount,
+      views: data.items[0].statistics.viewCount,
+      videos: data.items[0].statistics.videoCount,
+    };
+
+    res.json(metrics);
+  } catch (error) {
+    console.error("Si è verificato un errore durante la richiesta API:", error);
+    res.status(500).json({ error: "Errore durante la richiesta API" });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server in ascolto sulla porta ${port}`);
 });
