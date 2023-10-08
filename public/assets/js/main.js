@@ -6,9 +6,9 @@ document.getElementById("channelForm").addEventListener("submit", async function
     const response = await fetch('/getChannelMetrics', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Cambia il tipo di contenuto a JSON
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({ channelName }), // Invia i dati come oggetto JSON
+      body: `channelName=${channelName}`,
     });
 
     if (response.ok) {
