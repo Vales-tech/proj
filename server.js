@@ -8,10 +8,10 @@ const port = 3000;
 // Abilita CORS
 app.use(cors());
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true })); // Gestisci i dati URL codificati
+app.use(express.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html'); // Correggi il percorso del file HTML principale
+  res.sendFile(__dirname + '/public/index.html');  
 });
 
 app.post('/getChannelMetrics', async (req, res) => {
