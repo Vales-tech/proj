@@ -6,9 +6,9 @@ document.getElementById("channelForm").addEventListener("submit", async function
     const response = await fetch('/getChannelMetrics', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json', // Imposta il tipo di contenuto a JSON
       },
-      body: `channelName=${channelName}`,
+      body: JSON.stringify({ channelName }), // Invia i dati come oggetto JSON
     });
 
     if (response.ok) {
@@ -16,12 +16,13 @@ document.getElementById("channelForm").addEventListener("submit", async function
       // Usa i dati per creare il grafico
       createBarChart(data);
     } else {
-      console.error("Errore nella richiesta API");
+      console.error("Errore nella richiesta API:", response.status, response.statusText);
     }
   } catch (error) {
     console.error("Errore durante la richiesta API:", error);
   }
 });
+
 
 function createBarChart(data) {
   // Seleziona l'elemento HTML in cui vuoi visualizzare il grafico
