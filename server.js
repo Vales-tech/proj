@@ -1,5 +1,13 @@
 const express = require('express');
-const fetch = require('node-fetch');
+
+let fetch;
+if (typeof window === 'undefined') {
+  // Se il codice viene eseguito lato server (Node.js), utilizza l'importazione dinamica
+  fetch = require('node-fetch');
+} else {
+  // Se il codice viene eseguito lato client (browser), utilizza fetch nativo del browser
+  fetch = window.fetch;
+}
 
 const app = express();
 const port = 3000;
