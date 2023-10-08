@@ -4,7 +4,7 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
-app.use(express.static('public')); // Serve il contenuto HTML, CSS e JavaScript dalla cartella 'public'
+app.use(express.static('proj')); // Serve il contenuto HTML, CSS e JavaScript dalla cartella 'proj'
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/proj/index.html'); // Invia il file HTML principale
