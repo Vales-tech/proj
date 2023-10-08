@@ -6,43 +6,39 @@ document.getElementById("channelForm").addEventListener("submit", async function
     const response = await fetch('/getChannelMetrics', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded', // Imposta il tipo di contenuto a 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json', // Imposta il tipo di contenuto a JSON
       },
-      body: `channelName=${channelName}`,
+      body: JSON.stringify({ channelName }), // Invia i dati come oggetto JSON
     });
 
     if (response.ok) {
       const data = await response.json();
       // Usa i dati per creare il grafico
-      createBarChart(data);
+      createPolarAreaChart(data);
     } else {
       console.error("Errore nella richiesta API:", response.status, response.statusText);
     }
   } catch (error) {
     console.error("Errore durante la richiesta API:", error);
-   
-});
- app.listen(port, () => {
-  console.log(`Server in ascolto sulla porta ${port}`);
   }
 });
 
-function createBarChart(data) {
+function createPolarAreaChart(data) {
   // Seleziona l'elemento HTML in cui vuoi visualizzare il grafico
   const ctx = document.getElementById('myChart').getContext('2d');
 
-  // Crea il grafico a barre
-  new Chart(ctx, {
-    type: 'bar',
+  // Crea il grafico a polar area utilizzando Chart.js
+  const myChart = new Chart(ctx, {
+    type: 'polarArea',
     data: {
       labels: ['Subscribers', 'Views', 'Videos'],
       datasets: [{
         label: 'Channel Metrics',
         data: [data.subscribers, data.views, data.videos],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -53,8 +49,8 @@ function createBarChart(data) {
       }],
     },
     options: {
-      scales: {
-        y: {
+      scale: {
+        ticks: {
           beginAtZero: true,
         },
       },
