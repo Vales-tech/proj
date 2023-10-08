@@ -15,10 +15,9 @@ app.use(express.static('public'));
 app.post('/getChannelMetrics', async (req, res) => {
   try {
     const channelName = req.body.channelName;
-    const apiKey = 'AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc';  
 
-    // Esegui una richiesta API con il nome utente del canale
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=${AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc}`);
+    // Esegui una richiesta API con il nome utente del canale direttamente nell'URL
+    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`);
     
     // Estrai le metriche desiderate dalla risposta API
     const data = response.data;
