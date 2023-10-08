@@ -14,7 +14,7 @@ app.post('/getChannelMetrics', async (req, res) => {
   const channelName = req.body.channelName;
 
   try {
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YOUR_API_KEY`);
+    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`);
     const data = response.data;
     
     const metrics = {
