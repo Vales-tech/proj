@@ -8,19 +8,21 @@ const port = 3000;
 // Abilita CORS
 app.use(cors());
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');  
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.post('/getChannelMetrics', async (req, res) => {
   const channelName = req.body.channelName;
 
   try {
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=AIzaSyAjvgjAILjhg4tL3e713tEm2AUr2k5d9Nc`);
+    const response = await axios.get(
+      `https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&forUsername=${channelName}&key=YOUR_API_KEY`
+    );
     const data = response.data;
-    
+
     const metrics = {
       channelTitle: data.items[0].snippet.title,
       subscribers: data.items[0].statistics.subscriberCount,
