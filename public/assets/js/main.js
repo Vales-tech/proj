@@ -1,4 +1,3 @@
-// Questo è il codice lato client che gestisce le interazioni utente nel browser
 document.getElementById("channelForm").addEventListener("submit", async function (e) {
   e.preventDefault();
   const channelName = document.getElementById("channelName").value;
