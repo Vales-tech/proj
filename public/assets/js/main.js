@@ -20,6 +20,10 @@ document.getElementById("channelForm").addEventListener("submit", async function
     }
   } catch (error) {
     console.error("Errore durante la richiesta API:", error);
+    app.listen(port, () => {
+  console.log(`Server in ascolto sulla porta ${port}`);
+});
+
   }
 });
 
