@@ -1,9 +1,12 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
+// Abilita CORS
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true })); // Gestisci i dati URL codificati
 
