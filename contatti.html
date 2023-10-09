@@ -69,7 +69,20 @@
                 <label for="Number of pages">Number of pages</label>
                 <input type="text" class="form-control" id="Number of pages" placeholder="Number of pages"
                     name='numOfPages'>
-            </div>
+            </div
+		    <label for="subject">Subject</label>
+		<select id="subject" name="subject">
+			<option value="Support">Support</option>
+			<option value="Info">Information</option>
+			<option value="Join us">Join us</option>
+		</select>
+		<br>
+		<label id="message_label" for="message">Message</label>
+		<textarea id="message" name="message" id="" cols="30" rows="2"></textarea>
+		<br>
+		<label for="file">Upload a file</label>
+		<input type="file" id="file" name="file" multiple>
+		<br><br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
