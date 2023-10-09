@@ -41,12 +41,15 @@
 				    <p>Non esitare a contattarci per qualsiasi domanda o richiesta</p>
 				    <form action="http://127.0.0.1:3000/contatti" method="POST">
 					    <div class="form-group">
-						    <label for="ISBN">Name</label>
+						    <label for="Name">Name</label>
 						    <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter Name"name="Name">
 					    </div>
 					    <div class="form-group">
-						    <label for="Surname">Surname</label>
-						    <input type="test" class="form-control" id="Surname" placeholder="Surname" name='Surname'>
+						    <div class="form-group">
+							    <label for="Phone">Phone</label>
+							    <input type="text" class="form-control" id="Phone" placeholder="Phone" name='Phone'>
+						    </div>
+						    
 						    <div class="form-group">
 							    <label for="Email">Email</label>
 							    <input type="text" class="form-control" id="Email" placeholder="Author" name="Email">
@@ -55,10 +58,8 @@
 							    <label for="Canale date">Canale</label>
 							    <input type="text" class="form-control" id="Canale" placeholder="Canale"name="Canale">
 						    </div>
-						    <div class="form-group">
-							    <label for="Phone">Phone</label>
-							    <input type="text" class="form-control" id="Phone" placeholder="Phone" name='Phone'>
-						    </div>
+						    <label for="Surname">Surname</label>
+						    <input type="test" class="form-control" id="Surname" placeholder="Surname" name='Surname'>
 						    <label for="subject">Subject</label>
 						    <select id="subject" name="subject">
 							    <option value="Support">Support</option>
