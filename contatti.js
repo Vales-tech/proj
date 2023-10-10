@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'vthekillers@gmail.com',
+        user: 'valeunimi@gmail.com',
         pass: 'thekillersn1'
     }
 });
@@ -29,7 +29,7 @@ app.post('/contatti', (req, res) => {
     // Invia un'email con i dati del contatto
     const mailOptions = {
         from: 'tua-email@gmail.com',
-        to: 'vthekillers@gmail.com',
+        to: 'valeunimi@gmail.com',
         subject: 'Nuovo contatto',
         text: JSON.stringify(contatto)
     };
