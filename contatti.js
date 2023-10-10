@@ -28,7 +28,7 @@ app.post('/contatti', (req, res) => {
 
     // Invia un'email con i dati del contatto
     const mailOptions = {
-        from: 'vthekillers@gmail.com',
+        from: 'tua-email@gmail.com',
         to: 'vthekillers@gmail.com',
         subject: 'Nuovo contatto',
         text: JSON.stringify(contatto)
