@@ -1,65 +1,93 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const port = 3000;
-
-let contacts = [];
-
-const nodemailer = require('nodemailer');
-
-// Configura il trasportatore per l'invio di email
-const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'valeunimi@gmail.com',
-        pass: 'tjlcdwtpiczzryiz'
-    }
-});
-
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// AGGIUNGI CONTATTO POST
-app.post('/contatti', (req, res) => {
-    const contatto = req.body;
-    console.log(contatto);
-    contacts.push(contatto);
-
-    // Creare il corpo dell'email in un formato più leggibile
-    const emailBody = `
-        Nome: ${contatto.Name}
-        Cognome: ${contatto.Surname}
-        Email: ${contatto.Email}
-        Canale: ${contatto.Canale}
-        Telefono: ${contatto.Phone}
-        Oggetto: ${contatto.subject}
-        Messaggio: ${contatto.message}
-    `;
-    
-    // Invia un'email con i dati del contatto
-    const mailOptions = {
-        from: 'tua-email@gmail.com',
-        to: 'valeunimi@gmail.com',
-        subject: 'Nuovo contatto',
-        text: emailBody
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email inviata: ' + info.response);
-        }
-    });
-
-    // Invia una risposta al client
-    res.send('Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
-});
-
-// RITORNA LISTA CONTATTI
-app.get('/contatti', (req, res) => {
-    res.json(contacts);
-});
-
-app.listen(port, () => console.log(`test contatti listening on port ${port}`));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="public/assets/css/main.css"> 
+    <title>Contact Us</title>
+    <!-- Includi i tuoi file CSS e script -->
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1><a href="index.html" id="logo">Contact Us</a></h1><br>
+                    <p>Please provide your details below</p>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li class="current"><a href="index.html">Home</a></li>
+                <li><a href="left-sidebar.html">List</a></li>
+                <li><a href="contatti.html">Contact</a></li>
+            </ul>
+        </nav>
+        <section id="main">
+            <div class="container">
+                <div class="row gtr-200">
+                    <div class="col-12">
+                        <!-- Form -->
+                        <div class="container">
+                            <form action="http://127.0.0.1:3000/contatti" method="POST">
+                                <div class="form-group">
+                                    <label for="Name">Name:</label>
+                                    <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Surname">Surname:</label>
+                                    <input type="text" class="form-control" id="Surname" placeholder="Surname" name="Surname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email:</label>
+                                    <input type="email" class="form-control" id="Email" placeholder="Email" name="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Canale">Canale:</label>
+                                    <input type="text" class="form-control" id="Canale" placeholder="Canale" name="Canale" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Phone">Phone:</label>
+                                    <input type="tel" class="form-control" id="Phone" placeholder="Phone" name="Phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject:</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="Support">Support</option>
+                                        <option value="Info">Information</option>
+                                        <option value="Join us">Join us</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea id="message" name="message" rows="4" required></textarea>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="copyright">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="public/assets/js/jquery.min.js"></script>
+    <script src="public/assets/js/jquery.dropotron.min.js"></script>
+    <script src="public/assets/js/jquery.scrolly.min.js"></script>
+    <script src="public/assets/js/browser.min.js"></script>
+    <script src="public/assets/js/breakpoints.min.js"></script>
+    <script src="public/assets/js/util.js"></script>   
+    <script src="public/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
