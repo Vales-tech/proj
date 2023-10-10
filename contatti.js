@@ -14,7 +14,7 @@ app.post('/contatti', (req, res) => {
     const contatto = req.body;
     console.log(contatto);
     contacts.push(contatto);
-    res.send('Contatto is added to the database');
+    res.send('Contatto is added to the database, Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile.');
 });
 
 // RITORNA LISTA CONTATTI
