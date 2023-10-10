@@ -5,6 +5,17 @@ const port = 3000;
 
 let contacts = [];
 
+const nodemailer = require('nodemailer');
+
+// Configura il trasportatore per l'invio di email
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'vthekillers@gmail.com',
+        pass: 'thekillersn1'
+    }
+});
+
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -14,7 +25,25 @@ app.post('/contatti', (req, res) => {
     const contatto = req.body;
     console.log(contatto);
     contacts.push(contatto);
-    res.send('Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
+
+    // Invia un'email con i dati del contatto
+    const mailOptions = {
+        from: 'tua-email@gmail.com',
+        to: 'destinatario@email.com',
+        subject: 'Nuovo contatto',
+        text: JSON.stringify(contatto)
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email inviata: ' + info.response);
+        }
+    });
+
+    // Invia una risposta al client
+    res.send('Contatto is added to the database, Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
 });
 
 // RITORNA LISTA CONTATTI
