@@ -43,7 +43,7 @@ app.post('/contatti', (req, res) => {
     });
 
     // Invia una risposta al client
-    res.send('Contatto is added to the database, Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
+    res.send('Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
 });
 
 // RITORNA LISTA CONTATTI
