@@ -1,3 +1,4 @@
+const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
@@ -25,23 +26,12 @@ app.post('/contatti', (req, res) => {
     console.log(contatto);
     contacts.push(contatto);
 
-    // Creare il corpo dell'email in un formato più leggibile
-    const emailBody = `
-        Nome: ${contatto.Name}
-        Cognome: ${contatto.Surname}
-        Email: ${contatto.Email}
-        Canale: ${contatto.Canale}
-        Telefono: ${contatto.Phone}
-        Oggetto: ${contatto.subject}
-        Messaggio: ${contatto.message}
-    `;
-
     // Invia un'email con i dati del contatto
     const mailOptions = {
         from: 'valeunimi@gmail.com',
         to: 'valeunimi@gmail.com',
         subject: 'Nuovo contatto',
-        text: emailBody
+        text: JSON.stringify(contatto)
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -56,5 +46,9 @@ app.post('/contatti', (req, res) => {
     res.send('Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto possibile');
 });
 
+// RITORNA LISTA CONTATTI
+app.get('/contatti', (req, res) => {
+    res.json(contacts);
+});
 
 app.listen(port, () => console.log(`test contatti listening on port ${port}`));
